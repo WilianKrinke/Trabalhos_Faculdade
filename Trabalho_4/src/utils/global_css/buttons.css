@@ -1,0 +1,92 @@
+.logout_btn {
+  width: 100px;
+  height: 30px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #050517;
+  border-radius: 3px;
+  letter-spacing: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.logout_btn:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #faf5ef;
+}
+
+.atualizar_btn {
+  width: 180px;
+  height: 30px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #050517;
+  border-radius: 3px;
+  letter-spacing: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.atualizar_btn:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #faf5ef;
+}
+
+.atualizar_senha_btn {
+  width: 250px;
+  height: 30px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #050517;
+  border-radius: 3px;
+  letter-spacing: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.atualizar_senha_btn:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #faf5ef;
+}
+
+.entrar {
+  width: 180px;
+  height: 30px;
+  margin: 20px 0px 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #050517;
+  border-radius: 3px;
+  letter-spacing: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.entrar:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #faf5ef;
+}

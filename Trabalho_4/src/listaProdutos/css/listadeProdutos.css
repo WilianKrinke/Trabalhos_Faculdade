@@ -1,0 +1,70 @@
+.display_flex_col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.display_flex_row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.container_list {
+  width: 100%;
+  padding: 14px 0px;
+}
+
+section {
+  width: 100%;
+  min-height: 75vh;
+}
+
+article {
+  width: 100%;
+  min-height: 75vh;
+}
+
+.bem_vindo p {
+  position: absolute;
+  right: 50px;
+  letter-spacing: 3px;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 1px solid #050517;
+}
+
+td {
+  text-align: center;
+  width: 33%;
+  height: 70px;
+  letter-spacing: 3px;
+}
+
+td > a {
+  text-decoration: none;
+  color: #050517;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+td > a:hover {
+  border-bottom: 2px solid #050517;
+}
+
+.container_list_products {
+  padding: 10px;
+  justify-content: space-evenly;
+}
+
+.container_list_products h2 {
+  margin-bottom: 10px;
+}

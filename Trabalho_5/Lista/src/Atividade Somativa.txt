@@ -1,0 +1,18 @@
+Conforme foi apresentado na semana 4 a estrutura de dados, lista, elabore em grupo (não esqueça de se inscrever na semana 3), uma lista dinâmica de números inteiros em Java. A lista deverá possuir um objeto Nó (classe No) e ter os métodos listados abaixo.
+
+Deverá comprimir a pasta src do projeto em .zip e realizar a entrega no Blackboard.
+
+
+
+
+
+void insereDepois(No no, int info)
+
+
+
+No removePrimeiro()
+
+No removeUltimo()
+
+No remove(No no)
+

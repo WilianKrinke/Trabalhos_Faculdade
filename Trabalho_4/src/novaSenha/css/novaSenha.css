@@ -1,0 +1,96 @@
+.display_flex_col {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.display_flex_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.container_list {
+  width: 100%;
+  padding: 14px 0px;
+}
+
+section {
+  width: 100%;
+  min-height: 70vh;
+}
+
+article {
+  width: 100%;
+  min-height: 70vh;
+}
+
+.container_list {
+  width: 100%;
+  padding: 14px 0px;
+}
+
+.bem_vindo p {
+  position: absolute;
+  right: 95px;
+  letter-spacing: 3px;
+}
+
+.box_list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.box_list li {
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+  padding: 5px;
+}
+
+.box_list li:hover {
+  border-bottom: 2px solid #050517;
+}
+
+.box_list li a {
+  text-decoration: none;
+  color: #3b3b3b;
+  position: relative;
+  left: 3px;
+}
+
+.box_list li a:hover {
+  color: #050517;
+}
+
+.form {
+  height: 200px;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  background-color: #efc88b;
+  border: 5px solid #daca9b;
+  border-radius: 5px;
+}
+
+.container_radios {
+  height: 100px;
+}
+
+.container_pass {
+  height: 70px;
+}
+
+.done {
+  color: #32a852;
+}
+
+.alert {
+  color: #a83232;
+}

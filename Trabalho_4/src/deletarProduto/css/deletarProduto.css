@@ -1,0 +1,139 @@
+.display_flex_col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.display_flex_row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.container_list {
+  width: 100%;
+  padding: 14px 0px;
+}
+
+section {
+  width: 100%;
+  min-height: 75vh;
+}
+
+article {
+  width: 100%;
+  min-height: 75vh;
+}
+
+.bem_vindo p {
+  position: absolute;
+  right: 50px;
+  letter-spacing: 3px;
+}
+
+.box_list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.box_list li {
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+  padding: 5px;
+}
+
+.box_list li:hover {
+  border-bottom: 2px solid #050517;
+}
+
+.box_list li a {
+  text-decoration: none;
+  color: #3b3b3b;
+}
+
+.box_list li a:hover {
+  color: #050517;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #efc88b;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  letter-spacing: 5px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.logout:hover {
+  border-bottom: 2px solid #050517;
+}
+
+.button {
+  display: flex;
+  justify-content: space-around;
+  border: none;
+  align-items: center;
+  width: 110px;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  color: #3b3b3b;
+  background-color: transparent;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+  letter-spacing: 5px;
+  cursor: pointer;
+  margin: 0px 10px;
+}
+
+.button:hover {
+  color: #050517;
+  border-bottom: 2px solid #050517;
+}
+
+.bem_vindo p {
+  position: absolute;
+  right: 50px;
+  letter-spacing: 3px;
+}
+
+.container_list_products {
+  padding: 10px;
+  justify-content: space-evenly;
+}
+
+.container_list_products h2 {
+  margin-bottom: 10px;
+}
+
+.container_product_info {
+  width: 40%;
+  height: 150px;
+  background-color: #efc88b;
+  border: 5px solid #daca9b;
+}
+
+.container_product_info p {
+  letter-spacing: 3px;
+}
+
+.done {
+  color: #32a852;
+  margin-top: 20px;
+}
+
+.alert {
+  color: #a83232;
+}

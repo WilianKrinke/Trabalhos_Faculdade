@@ -1,0 +1,114 @@
+:root {
+  --btn-background: #efc88b;
+  --header-background: #efc88b;
+  --main-background: #f4e3b2;
+  --letters-color: #050517;
+}
+
+.display_flex_col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.display_flex_row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.container_list {
+  width: 100%;
+  padding: 14px 0px;
+}
+
+section {
+  width: 100%;
+  min-height: 75vh;
+}
+
+article {
+  width: 100%;
+  min-height: 75vh;
+}
+
+.bem_vindo p {
+  position: absolute;
+  right: 50px;
+  letter-spacing: 3px;
+}
+
+.display_flex_row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.display_flex_col {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.section_content {
+  height: 400px;
+  width: 95%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container_list {
+  width: 100%;
+}
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 1px solid #050517;
+}
+
+th {
+  text-align: center;
+  height: 70px;
+  letter-spacing: 3px;
+}
+
+td {
+  text-align: center;
+  height: 70px;
+  letter-spacing: 3px;
+}
+
+td > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  text-decoration: none;
+  background-color: var(--main-background);
+  color: var(--letters-color);
+  height: 40px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+td > a:hover {
+  border-bottom: 2px solid var(--letters-color);
+}
+
+.done {
+  color: #208b3c;
+}
+
+.alert {
+  color: #a83232;
+}
