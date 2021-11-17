@@ -14,8 +14,9 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
-    <link rel="stylesheet" href="../css//novaSenha.css">
     <link rel="stylesheet" href="../../utils//global_css/buttons.css">
+    <link rel="stylesheet" href="../../utils//global_css//links.css">
+    <link rel="stylesheet" href="../css//novaSenha.css">
 
     <title>Programação Web - PUC-Pr</title>
 </head>
@@ -41,6 +42,9 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                     <li><a href="http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/src/listaProdutos/php/">Lista de Produtos</a></li>
                     <li><a href="http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/src/minhaLista/php/">Minha Lista</a></li>
                     <li><a href="http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/src/meusDados/php/">Meus Dados</a></li>
+                    <form action="../../utils//logout.php" method="get">
+                        <button type="submit" class="logout_btn">Sair</button>
+                    </form>
                     ';
                 } else if ($_SESSION['isAdm'] == 1) {
                     echo '                    
@@ -49,6 +53,9 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                     <li><a href="http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/srccadastroDeProdutos/php/">Cadastro de Produtos</a></li>
                     <li><a href="http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/srccadastroUsuario/php/">Cadastro de Usuários</a></li>
                     <li><a href="http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/src/meusDados/php/">Meus Dados</a></li>
+                    <form action="../../utils//logout.php" method="get">
+                        <button type="submit" class="logout_btn">Sair</button>
+                    </form>
                     ';
                 }
                 ?>

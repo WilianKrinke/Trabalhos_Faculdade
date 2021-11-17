@@ -38,35 +38,6 @@ article {
   letter-spacing: 3px;
 }
 
-.box_list {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.box_list li {
-  display: inline-block;
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s ease-in-out;
-  padding: 5px;
-}
-
-.box_list li:hover {
-  border-bottom: 2px solid #050517;
-}
-
-.box_list li a {
-  text-decoration: none;
-  color: #3b3b3b;
-  position: relative;
-  left: 3px;
-}
-
-.box_list li a:hover {
-  color: #050517;
-}
-
 .form {
   height: 200px;
   width: 50%;

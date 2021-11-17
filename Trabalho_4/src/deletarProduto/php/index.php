@@ -17,7 +17,9 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../utils//globalCss.css">
+    <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
+    <link rel="stylesheet" href="../../utils//global_css//links.css">
+    <link rel="stylesheet" href="../../utils//global_css//buttons.css">
     <link rel="stylesheet" href="../css/deletarProduto.css">
     <title>Programação Web - PUC-Pr</title>
 </head>
@@ -38,7 +40,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                 <li><a href="../../meusDados/php/">Meus Dados</a></li>
                 <li><a href="../../listaDeUsuarios/php/">Lista de usuários</a></li>
                 <form action="../../utils//logout.php" method="get" class="container_logout">
-                    <button type="submit" class="logout display_flex_col">Sair</button>
+                    <button type="submit" class="logout_btn">Sair</button>
                 </form>
             </ul>
         </nav>
@@ -59,7 +61,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                             <input type='hidden' value='$idProduct' name='idProduct'>
                             ";
                             ?>
-                            <button type="submit" class="button">Excluir</button>
+                            <button type="submit" class="atualizar_btn">Excluir</button>
                         </form>
                     </div>
                     <?php
