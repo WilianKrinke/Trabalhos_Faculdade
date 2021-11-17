@@ -66,11 +66,14 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                         <?php
                         $oneWeekLater = time() + (7 * 24 * 60 * 60);
 
+                        //teste de um dia atrasado
+                        $oneDay = time() + (60 * 60 * 24);
+
                         $userId = $_SESSION['userId'];
                         $idProduct = $_GET['id_product'];
                         $productName = $_GET['nome_produto'];
                         $db_todayDate = date("Y-m-d");
-                        $db_devolutionDate = date("Y-m-d", $oneWeekLater);
+                        $db_devolutionDate = date("Y-m-d", $oneDay);
 
                         echo "
                             <input type='hidden' value='$userId' name='idUser'>
