@@ -60,7 +60,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
                 if (!is_null($dados['nome_produto'])) {
-                    echo doProductsRegister($dados['nome_produto']);
+                    doProductsRegister($dados['nome_produto']);
                 }
                 ?>
             </article>

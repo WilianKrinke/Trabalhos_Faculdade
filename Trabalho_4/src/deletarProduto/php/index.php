@@ -72,8 +72,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                         $wasDeleted = deletarProduto($product['idProduct']);
 
                         if ($wasDeleted) {
-                            echo "<p class='done'>Produto Deletado</p>";
-                            header("Location: ../../listaProdutos/php/");
+                            header('location: http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/src/listaProdutos/php/');
                         } else {
                             echo "<p class='alert'>Erro: contate o desenvolvedor</p>";
                         }

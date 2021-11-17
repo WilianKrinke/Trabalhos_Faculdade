@@ -10,8 +10,7 @@ function doProductsRegister($productName)
 
 
     if ($cadastroProduto->rowCount()) {
-        $isRegistered = "<p class='done'>Produto cadastrado com sucesso.</p>";
-        return $isRegistered;
+        header('location: http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/src/listaProdutos/php/');
     } else {
         $isNotRegistered = "<p class='alert'>Erro: Produto não cadastrado.</p>";
         return $isNotRegistered;
