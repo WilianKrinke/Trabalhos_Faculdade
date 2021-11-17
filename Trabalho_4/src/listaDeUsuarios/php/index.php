@@ -18,7 +18,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../utils//globalCss.css">
-    <link rel="stylesheet" href="../css/listaDeUsuarios.css">
+    <link rel="stylesheet" href="../css//listaDeUsuarios.css">
     <link rel="stylesheet" href="../../utils//global_css/links.css">
     <link rel="stylesheet" href="../../utils//global_css//buttons.css">
     <title>Programação Web - PUC-Pr</title>
@@ -52,6 +52,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                     <thead>
                         <tr>
                             <th>Usuário</th>
+                            <th>Administrador - (1 para "sim" - 0 para "não")</th>
                         </tr>
                     </thead>
                     <tbody>

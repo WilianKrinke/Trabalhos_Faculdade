@@ -34,7 +34,7 @@ article {
 }
 
 table {
-  width: 50%;
+  width: 70%;
   border-collapse: collapse;
 }
 
@@ -44,7 +44,7 @@ tr {
 
 td {
   text-align: center;
-  width: 50%;
+  width: 33%;
   height: 70px;
   letter-spacing: 3px;
 }

@@ -13,6 +13,7 @@ function getUsers()
             echo "
                 <tr>
                     <td>" . $row_user['userName'] . "</td>
+                    <td>" . $row_user['adm'] . "</td>
                     <td><a href='../../deletarUsuario/php/?id_user=" . $row_user['idUser'] . "&user_name=" . $row_user['userName'] . "'>Excluir</a></td>
                 </tr>
             ";
