@@ -6,6 +6,10 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
     unset($_SESSION['userName']);
     unset($_SESSION['isAdm']);
     header('Location: ../../home/php');
+} else {
+    if ($_SESSION['isAdm'] == 0) {
+        header('Location: ../../listaProdutos/php');
+    }
 }
 ?>
 

@@ -2,7 +2,11 @@
 <html lang="pt-br">
 <?php
 session_start();
-if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == true)) {
+if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == true)) {
+    unset($_SESSION['userName']);
+    unset($_SESSION['isAdm']);
+    header('Location: ../../home/php');
+} else {
     if ($_SESSION['isAdm'] == 0) {
         header('Location: ../../listaProdutos/php');
     }
