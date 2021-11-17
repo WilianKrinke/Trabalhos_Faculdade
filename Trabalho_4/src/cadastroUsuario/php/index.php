@@ -16,7 +16,7 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
     <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
     <link rel="stylesheet" href="../../utils//global_css//buttons.css">
     <link rel="stylesheet" href="../../utils//global_css//links.css">
-    <link rel="stylesheet" href="../css//cadastroUsuario.css">
+    <link rel="stylesheet" href="../css/cadastroUsuario.css">
     <title>Programação Web - PUC - Pr</title>
 </head>
 
@@ -57,6 +57,7 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
         <section class="display_flex_col">
             <article class="display_flex_col">
 
+
                 <form action="#" method="post" class="form" autocomplete="on" class="display_flex_col">
                     <div>
                         <label for="name">Nome de Usuário:</label>
@@ -80,12 +81,12 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
                         if ($_SESSION['isAdm'] == 1) {
                             echo '
                             <div class="display_flex_col container_radios">
-                            <label for="typeuser">Type of user: <span> *</span></label>
+                                <label for="typeuser">Type of user: <span> *</span></label>
                             <div>
-                            <input type="radio" name="typeuser" id="commonuser" value="0" checked>
-                            <label for="commonuser">Common User</label>
+                                <input type="radio" name="typeuser" id="commonuser" value="0" checked>
+                                <label for="commonuser">Common User</label>
                             </div>
-                            <div>
+                                <div>
                                     <input type="radio" name="typeuser" id="adm" value="1">
                                     <label for="adm">Administrator</label>
                                 </div>
@@ -107,12 +108,16 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
                         </div>
                     </div>
 
-                    <div class="display_flex_col">
+                    <div class="display_flex_row box_confirmed">
+                        <?php
+                        if (!(isset($_SESSION['userName']) == true) and !(isset($_SESSION['isAdm']) == true)) {
+                            echo "<a href='http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/src/home/php/' class='cadastrar'>Página Inicial</a>";
+                        }
+                        ?>
                         <button type="submit" class="atualizar_btn">Cadastrar</button>
-                        <span> * Campos obrigatórios</span>
                     </div>
+                    <span> * Campos obrigatórios</span>
                 </form>
-
                 <?php
                 require_once('dataValidator.php');
                 require_once('doRegister.php');

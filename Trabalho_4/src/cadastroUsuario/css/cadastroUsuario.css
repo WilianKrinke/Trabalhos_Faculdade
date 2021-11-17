@@ -75,6 +75,10 @@ form a:hover {
   border-bottom: 2px solid #050517;
 }
 
+.box_confirmed {
+  width: 500px;
+}
+
 .done {
   color: #32a852;
 }
