@@ -4,7 +4,7 @@ function doRegister($datas)
     include('../../utils/connection.php');
     $senha = $datas['pass'];
 
-    define("SECRET", getenv('SECRET'));
+    define("SECRET", "oratoroeuaroupadoreideroma12345");
     $cript_pass = crypt($senha, SECRET);
 
     $queryUserRegister = "INSERT INTO fundamentosweb.users (userName, birthday, email, adm, pass) VALUES (:nome,:birthday,:email,:adm,:pass)";

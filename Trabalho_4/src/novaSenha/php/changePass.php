@@ -3,7 +3,7 @@ function changePass($newPass)
 {
     include('../../utils/connection.php');
 
-    define("SECRET", getenv('SECRET'));
+    define("SECRET", "oratoroeuaroupadoreideroma12345");
     $cript_pass = crypt($newPass, SECRET);
 
     $queryChangePass = "UPDATE fundamentosweb.users SET pass = :newPass WHERE idUser = :idUser";
