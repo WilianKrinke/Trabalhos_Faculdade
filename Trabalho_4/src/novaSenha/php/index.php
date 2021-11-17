@@ -13,7 +13,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../utils/globalCss.css">
+    <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
     <link rel="stylesheet" href="../css//novaSenha.css">
     <link rel="stylesheet" href="../../utils//global_css/buttons.css">
 

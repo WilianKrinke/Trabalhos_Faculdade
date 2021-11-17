@@ -1,5 +1,6 @@
 <?php
 include('../../utils/connection.php');
+include('./upDateValidator.php');
 $newEmail = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
 $queryUpDateEmail = "UPDATE fundamentosweb.users SET email = :newEmail WHERE idUser = :userId";

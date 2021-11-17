@@ -13,10 +13,10 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../utils//globalCss.css">
-    <link rel="stylesheet" href="../css//meuDados.css">
+    <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
     <link rel="stylesheet" href="../../utils//global_css//buttons.css">
     <link rel="stylesheet" href="../../utils//global_css//links.css">
+    <link rel="stylesheet" href="../css//meuDados.css">
     <title>Programação Web - PUC-Pr</title>
 </head>
 
@@ -76,7 +76,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                     <div class="box_update">
                         <form class="form" action="./upDateName.php" method="post" autocomplete="on" name="userName">
                             <label for="name">Nome de Usuário:</label>
-                            <input type="text" name="name" id="name" title="Digite seu primeiro nome" required autofocus><span> *</span>
+                            <input type="text" name="name" id="name" title="Digite seu primeiro nome" required autofocus pattern="/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/"><span> *</span>
                             <?php
                             $idUser = $_SESSION['userId'];
                             echo "<input type='hidden' name='id' value='$idUser'>";
@@ -100,7 +100,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                     <div class="box_update">
                         <form class="form" action="./upDateEmail.php" method="post" autocomplete="on" name="email">
                             <label for="email">E-mail:</label>
-                            <input type="email" name="email" id="last-name" title="Digite seu e-mail" required><span> *</span>
+                            <input type="email" name="email" id="last-name" title="Digite seu e-mail" required pattern="/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/"><span> *</span>
                             <?php
                             $idUser = $_SESSION['userId'];
                             echo "<input type='hidden' name='id' value='$idUser'>";
