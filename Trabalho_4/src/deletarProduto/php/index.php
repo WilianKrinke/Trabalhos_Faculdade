@@ -27,37 +27,19 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
         <div class="display_flex_row container_list bem_vindo">
             <h1>Exclusão de Produto</h1>
             <?php
-            if ($_SESSION['isAdm'] == 1) {
-                echo "<p>Bem-vindo(a) administrador(a) " . $_SESSION['userName'] . " </p> ";
-            } else {
-                echo "<p>Bem-vindo(a) " . $_SESSION['userName'] . " </p> ";
-            }
+            echo "<p>Bem-vindo(a) administrador(a) " . $_SESSION['userName'] . " </p> ";
             ?>
         </div>
         <nav class="container_list">
             <ul class="box_list">
-                <?php
-                if ($_SESSION['isAdm'] == 0) {
-                    echo '
-                    <li><a href="../../minhaLista/php/">Minha Lista</a></li>
-                    <li><a href="../../meusDados/php/">Meus Dados</a></li>
-                    <form action="../../utils//logout.php" method="get" class="container_logout">
-                        <button type="submit" class="button_logout display_flex_col">Sair</button>
-                    </form>
-                    ';
-                } else if ($_SESSION['isAdm'] == 1) {
-                    echo '                    
-                    <li><a href="../../minhaLista/php/">Minha Lista</a></li>
-                    <li><a href="../../cadastroDeProdutos/php/">Cadastro de Produtos</a> </li>
-                    <li><a href="../../cadastroUsuario/php/">Cadastro de Usuários</a></li>
-                    <li><a href="../../meusDados/php/">Meus Dados</a></li>
-                    <li><a href="../../listaDeUsuarios/php/">Lista de usuários</a></li>
-                    <form action="../../utils//logout.php" method="get" class="container_logout">
-                        <button type="submit" class="logout display_flex_col">Sair</button>
-                    </form>
-                    ';
-                }
-                ?>
+                <li><a href="../../minhaLista/php/">Minha Lista</a></li>
+                <li><a href="../../cadastroDeProdutos/php/">Cadastro de Produtos</a> </li>
+                <li><a href="../../cadastroUsuario/php/">Cadastro de Usuários</a></li>
+                <li><a href="../../meusDados/php/">Meus Dados</a></li>
+                <li><a href="../../listaDeUsuarios/php/">Lista de usuários</a></li>
+                <form action="../../utils//logout.php" method="get" class="container_logout">
+                    <button type="submit" class="logout display_flex_col">Sair</button>
+                </form>
             </ul>
         </nav>
     </header>

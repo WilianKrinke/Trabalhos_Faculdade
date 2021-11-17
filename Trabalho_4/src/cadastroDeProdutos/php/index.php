@@ -29,34 +29,21 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
         <div class="display_flex_row container_list bem_vindo">
             <h1>Cadastro de Produtos</h1>
             <?php
-            if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == true)) {
-                if ($_SESSION['isAdm'] == 1) {
-                    echo "<p>Bem-vindo(a) administrador(a) " . $_SESSION['userName'] . " </p> ";
-                }
-            }
+            echo "<p>Bem-vindo(a) administrador(a) " . $_SESSION['userName'] . " </p> ";
             ?>
         </div>
-
-        <?php
-        if (isset($_SESSION['isAdm'])) {
-            if ($_SESSION['isAdm'] == 1) {
-                echo '
-                    <nav class="container_list">
-                        <ul class="box_list">
-                            <li><a href="../../minhaLista/php">Minha Lista</a></li>
-                            <li><a href="../../listaProdutos/php/">Lista de Produtos</a></li>
-                            <li><a href="../../cadastroUsuario/php/">Cadastro de Usuários</a></li>
-                            <li><a href="../../meusDados/php/">Configuração do Usuário</a></li>
-                            <li><a href="../../listaDeUsuarios/php/">Lista de usuários</a></li>
-                            <form action="../../utils//logout.php" method="get">
-                                <button type="submit" class="logout_btn">Sair</button>
-                            </form>
-                        </ul>                    
-                    </nav>
-                    ';
-            }
-        }
-        ?>
+        <nav class="container_list">
+            <ul class="box_list">
+                <li><a href="../../minhaLista/php">Minha Lista</a></li>
+                <li><a href="../../listaProdutos/php/">Lista de Produtos</a></li>
+                <li><a href="../../cadastroUsuario/php/">Cadastro de Usuários</a></li>
+                <li><a href="../../meusDados/php/">Configuração do Usuário</a></li>
+                <li><a href="../../listaDeUsuarios/php/">Lista de usuários</a></li>
+                <form action="../../utils//logout.php" method="get">
+                    <button type="submit" class="logout_btn">Sair</button>
+                </form>
+            </ul>
+        </nav>
     </header>
     <main class="display_flex_col">
         <section class="display_flex_col">
