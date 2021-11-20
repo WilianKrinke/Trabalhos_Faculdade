@@ -25,60 +25,64 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
 </head>
 
 <body>
-    <header class="display_flex_col">
-        <div class="display_flex_row container_list bem_vindo">
-            <h1>Exclusão de Produto</h1>
-            <?php
-            echo "<p>Bem-vindo(a) administrador(a) " . $_SESSION['userName'] . " </p> ";
-            ?>
+    <header>
+        <div class="title_welcome">
+            <div>
+                <h1 class="title">Excluir Produto</h1>
+            </div>
+            <div class="bem_vindo">
+                <?php
+                echo "<p>Administrador(a) " . $_SESSION['userName'] . " </p> ";
+                ?>
+            </div>
         </div>
-        <nav class="container_list">
-            <ul class="box_list">
+        <nav>
+            <ul>
                 <li><a href="../../minhaLista/php/">Minha Lista</a></li>
                 <li><a href="../../cadastroDeProdutos/php/">Cadastro de Produtos</a> </li>
                 <li><a href="../../cadastroUsuario/php/">Cadastro de Usuários</a></li>
                 <li><a href="../../meusDados/php/">Meus Dados</a></li>
                 <li><a href="../../listaDeUsuarios/php/">Lista de usuários</a></li>
-                <form action="../../utils//logout.php" method="get" class="container_logout">
-                    <button type="submit" class="logout_btn">Sair</button>
-                </form>
             </ul>
         </nav>
+        <form action="../../utils//logout.php" method="get">
+            <button type="submit" class="logout_btn">Sair</button>
+        </form>
     </header>
     <main class="display_flex_col">
         <section class="display_flex_col">
-            <article class="display_flex_col container_list_products">
-                <div class="display_flex_col container_product_info">
+            <article class="display_flex_col container_product_info">
+                <div class=" text">
                     <?php
                     echo "<p>Confirmar exclusão do item <strong>" . $_GET['nome_produto'] . "</strong>?</p>";
                     ?>
-                    <div class="display_flex_row">
-                        <a href="../../listaProdutos/php/" class="button">Cancelar</a>
-                        <form action="#" method="post">
-                            <?php
-                            $idProduct = $_GET['id_product'];
-                            echo "
+                </div>
+                <div class="confirmed">
+                    <a href="../../listaProdutos/php/" class="links">Cancelar</a>
+                    <form action="#" method="post">
+                        <?php
+                        $idProduct = $_GET['id_product'];
+                        echo "
                             <input type='hidden' value='$idProduct' name='idProduct'>
                             ";
-                            ?>
-                            <button type="submit" class="atualizar_btn">Excluir</button>
-                        </form>
-                    </div>
-                    <?php
-                    require('./deletarProduto.php');
-                    $product = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-
-                    if ($product != null) {
-                        $wasDeleted = deletarProduto($product['idProduct']);
-
-                        if ($wasDeleted) {
-                            header('location: http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/src/listaProdutos/php/');
-                        } else {
-                            echo "<p class='alert'>Erro: contate o desenvolvedor</p>";
-                        }
-                    }
-                    ?>
+                        ?>
+                        <button type="submit" class="atualizar_btn">Excluir</button>
+                    </form>
                 </div>
+                <?php
+                require('./deletarProduto.php');
+                $product = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+                if ($product != null) {
+                    $wasDeleted = deletarProduto($product['idProduct']);
+
+                    if ($wasDeleted) {
+                        header('location: http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/src/listaProdutos/php/');
+                    } else {
+                        echo "<p class='alert'>Erro: contate o desenvolvedor</p>";
+                    }
+                }
+                ?>
             </article>
         </section>
     </main>

@@ -12,45 +12,41 @@
   flex-direction: row;
 }
 
-.container_list {
-  width: 100%;
-  padding: 14px 0px;
-}
-
 section {
   width: 100%;
   min-height: 75vh;
 }
 
-article {
-  width: 100%;
-  min-height: 75vh;
-}
-
 .bem_vindo p {
-  position: absolute;
-  right: 50px;
   letter-spacing: 3px;
 }
 
-.container_list_products {
-  padding: 10px;
-  justify-content: space-evenly;
-}
-
-.container_list_products h2 {
-  margin-bottom: 10px;
-}
-
 .container_product_info {
-  width: 40%;
-  height: 150px;
+  width: 400px;
+  height: 180px;
   background-color: #efc88b;
   border: 5px solid #daca9b;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 .container_product_info p {
   letter-spacing: 3px;
+}
+
+.text {
+  width: 100%;
+  text-align: center;
+}
+
+.confirmed {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
 }
 
 .done {
@@ -60,4 +56,25 @@ article {
 
 .alert {
   color: #a83232;
+}
+
+@media screen and (max-width: 450px) {
+  .container_product_info {
+    width: 95%;
+    position: relative;
+    bottom: 120px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .container_product_info {
+    height: 200px;
+  }
+
+  .confirmed {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column-reverse;
+  }
 }
