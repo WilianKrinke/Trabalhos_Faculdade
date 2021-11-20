@@ -22,12 +22,12 @@
 
                 <form action="#" method="post" class="form">
                     <div class="container_input">
-                        <label for="userName" title="UserName">Usuário:</label>
+                        <label for="userName" title="UserName" class="label">Usuário:</label>
                         <input type="text" name="userName" id="userName">
                     </div>
 
                     <div class="container_input">
-                        <label for="pass" title="Digite sua Senha">Senha:</label>
+                        <label for="pass" title="Digite sua Senha" class="label">Senha:</label>
                         <input type="password" name="pass" id="pass">
                     </div>
 
