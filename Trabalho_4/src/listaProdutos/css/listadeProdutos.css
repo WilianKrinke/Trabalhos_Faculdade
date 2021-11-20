@@ -101,6 +101,14 @@ td > a:hover {
   .title_welcome {
     height: 130px;
   }
+
+  td {
+    letter-spacing: 1px;
+  }
+
+  td > a {
+    letter-spacing: 1px;
+  }
 }
 
 @media screen and (max-width: 340px) {
@@ -110,5 +118,13 @@ td > a:hover {
 
   .title_welcome {
     height: 150px;
+  }
+
+  td {
+    letter-spacing: 1px;
+  }
+
+  td > a {
+    letter-spacing: 1px;
   }
 }
