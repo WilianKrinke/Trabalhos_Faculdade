@@ -1,25 +1,29 @@
-.box_list {
-  list-style: none;
+nav {
+  width: 100%;
+}
+
+nav ul {
   display: flex;
   align-items: center;
+  flex-flow: row wrap;
   justify-content: space-evenly;
 }
 
-.box_list li {
+nav ul li {
   display: inline-block;
+  font-style: none;
   border-bottom: 2px solid transparent;
+  margin: 15px 15px;
   transition: all 0.2s ease-in-out;
-  padding: 5px;
 }
 
-.box_list li:hover {
+nav ul li:hover {
   border-bottom: 2px solid #050517;
-  cursor: pointer;
 }
 
-.box_list li a {
+nav ul li a {
   text-decoration: none;
-  color: #3b3b3b;
+  color: #383124;
 }
 
 .links {
@@ -64,4 +68,14 @@
 .cadastrar:hover {
   color: #050517;
   border-bottom: 2px solid #050517;
+}
+
+@media screen and (max-width: 700px) {
+  .box_list {
+    flex-wrap: wrap;
+    background-color: #050517;
+  }
+}
+
+@media screen and (max-width: 340px) {
 }

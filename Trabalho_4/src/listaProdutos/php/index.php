@@ -13,35 +13,36 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
-    <link rel="stylesheet" href="../../utils//global_css/links.css">
-    <link rel="stylesheet" href="../../utils//global_css//buttons.css">
+    <link rel="stylesheet" href="../../utils/global_css/globalCss.css">
+    <link rel="stylesheet" href="../../utils/global_css//links.css">
+    <link rel="stylesheet" href="../../utils/global_css/buttons.css">
     <link rel="stylesheet" href="../css//listadeProdutos.css">
     <title>Programação Web - PUC-Pr</title>
 </head>
 
 <body>
-    <header class="display_flex_col">
-        <div class="display_flex_row container_list bem_vindo">
-            <h1>Lista de Produtos</h1>
-            <?php
-            if ($_SESSION['isAdm'] == 1) {
-                echo "<p>Bem-vindo(a) administrador(a) " . $_SESSION['userName'] . " </p> ";
-            } else {
-                echo "<p>Bem-vindo(a) " . $_SESSION['userName'] . " </p> ";
-            }
-            ?>
+    <header>
+        <div class="title_welcome">
+            <div>
+                <h1 class="title">Lista de Produtos</h1>
+            </div>
+            <div class="bem_vindo">
+                <?php
+                if ($_SESSION['isAdm'] == 1) {
+                    echo "<p>Administrador(a) " . $_SESSION['userName'] . " </p> ";
+                } else {
+                    echo "<p>Bem-vindo(a) " . $_SESSION['userName'] . " </p> ";
+                }
+                ?>
+            </div>
         </div>
-        <nav class="container_list">
-            <ul class="box_list">
+        <nav>
+            <ul>
                 <?php
                 if ($_SESSION['isAdm'] == 0) {
                     echo '
                     <li><a href="../../minhaLista/php/">Minha Lista</a></li>
                     <li><a href="../../meusDados/php/">Meus Dados</a></li>
-                    <form action="../../utils//logout.php" method="get">
-                        <button type="submit" class="logout_btn">Sair</button>
-                    </form>
                     ';
                 } else if ($_SESSION['isAdm'] == 1) {
                     echo '                    
@@ -50,14 +51,14 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                     <li><a href="../../cadastroUsuario/php/">Cadastro de Usuários</a></li>
                     <li><a href="../../meusDados/php/">Meus Dados</a></li>
                     <li><a href="../../listaDeUsuarios/php/">Lista de usuários</a></li>
-                    <form action="../../utils//logout.php" method="get">
-                        <button type="submit" class="logout_btn">Sair</button>
-                    </form>
                     ';
                 }
                 ?>
             </ul>
         </nav>
+        <form action="../../utils//logout.php" method="get">
+            <button type="submit" class="logout_btn">Sair</button>
+        </form>
     </header>
     <main class="display_flex_col">
         <section class="display_flex_col">
