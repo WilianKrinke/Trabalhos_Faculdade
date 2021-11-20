@@ -13,18 +13,31 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
+    <link rel="stylesheet" href="../../utils//global_css/globalCss.css">
     <link rel="stylesheet" href="../../utils//global_css//buttons.css">
-    <link rel="stylesheet" href="../../utils//global_css//links.css">
-    <link rel="stylesheet" href="../css/emprestarProduto.css">
+    <link rel="stylesheet" href="../../utils/global_css/links.css">
+    <link rel="stylesheet" href="../css//emprestarProduto.css">
     <title>Programação Web - PUC-Pr</title>
 </head>
 
 <body>
-    <header class="display_flex_col">
-        <h1>Confirmação de Empréstimo</h1>
-        <nav class="container_list">
-            <ul class="box_list">
+    <header>
+        <div class="title_welcome">
+            <div>
+                <h1>Confirmação de Empréstimo</h1>
+            </div>
+        </div>
+        <div class="bem_vindo">
+            <?php
+            if ($_SESSION['isAdm'] == 1) {
+                echo "<p>Administrador(a) " . $_SESSION['userName'] . " </p> ";
+            } else {
+                echo "<p>Bem-vindo(a) " . $_SESSION['userName'] . " </p> ";
+            }
+            ?>
+        </div>
+        <nav>
+            <ul>
                 <?php
                 if ($_SESSION['isAdm'] == 0) {
                     echo '
@@ -45,6 +58,9 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                 ?>
             </ul>
         </nav>
+        <form action="../../utils//logout.php" method="get">
+            <button type="submit" class="logout_btn">Sair</button>
+        </form>
     </header>
     <main class="display_flex_col">
         <section class="display_flex_col">
@@ -59,7 +75,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                     echo "<p>O usuário " . $_SESSION['userName'] . " emprestará o produto: <strong>&quot" . $_GET['nome_produto'] . "&quot</strong>, no dia <strong>$todayLocalDate</strong>, com data de devolução para o dia <strong>$devolutionLocalDate</strong>.</p>";
                     ?>
                 </div>
-                <div class="display_flex_row container_confirmation">
+                <div class="container_confirmation">
                     <a href="http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/src/listaProdutos/php/" class="links">Cancelar</a>
 
                     <form action="#" method="post">
