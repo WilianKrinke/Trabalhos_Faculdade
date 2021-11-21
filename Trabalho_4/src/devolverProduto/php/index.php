@@ -16,15 +16,28 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
     <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
     <link rel="stylesheet" href="../../utils//global_css/links.css">
     <link rel="stylesheet" href="../../utils//global_css//buttons.css">
-    <link rel="stylesheet" href="../css/devolverProduto.css">
+    <link rel="stylesheet" href="../css//devolverProduto.css">
     <title>Programação Web - PUC-Pr</title>
 </head>
 
 <body>
-    <header class="display_flex_col">
-        <h1>Confirmação de Devolução</h1>
-        <nav class="container_list">
-            <ul class="box_list">
+    <header>
+        <div class="title_welcome">
+            <div>
+                <h1 class="title">Confirmação de Devolução</h1>
+            </div>
+            <div>
+                <?php
+                if ($_SESSION['isAdm'] == 1) {
+                    echo "<p>Administrador(a) " . $_SESSION['userName'] . " </p> ";
+                } else {
+                    echo "<p>Bem-vindo(a) " . $_SESSION['userName'] . " </p> ";
+                }
+                ?>
+            </div>
+        </div>
+        <nav>
+            <ul>
                 <?php
                 if ($_SESSION['isAdm'] == 0) {
                     echo '
@@ -46,18 +59,20 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
 
             </ul>
         </nav>
+        <form action="../../utils//logout.php" method="get">
+            <button type="submit" class="logout_btn">Sair</button>
+        </form>
     </header>
     <main class="display_flex_col">
         <section class="display_flex_col">
-            <article class="display_flex_col card_lend">
-                <div class="display_flex_col container_product_info">
+            <article class="card_lend">
+                <div class="container_product_info">
                     <?php
                     $productName = $_GET['product_name'];
-
                     echo "<p>Confirmar a devolução do item <strong>&quot$productName&quot</strong> ?</p>";
                     ?>
                 </div>
-                <div class="display_flex_row container_confirmation">
+                <div class="container_confirmation">
                     <a href="http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/src/minhaLista/php/" class="links">Cancelar</a>
 
                     <form action="#" method="post">

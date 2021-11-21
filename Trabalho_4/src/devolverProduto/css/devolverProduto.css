@@ -11,37 +11,46 @@
   justify-content: center;
   flex-direction: row;
 }
-
-.container_list {
-  width: 100%;
-  padding: 14px 0px;
-}
-
 section {
   width: 100%;
   min-height: 75vh;
 }
 
-.bem_vindo p {
-  position: absolute;
-  right: 50px;
+.title_welcome {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.title_welcome p {
   letter-spacing: 3px;
 }
 
 .card_lend {
-  width: 30%;
+  width: 400px;
   min-height: 40vh;
   padding: 20px;
   border-radius: 5px;
   background-color: #efc88b;
   justify-content: space-evenly;
   border: 5px solid #daca9b;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 .container_confirmation {
   width: 90%;
   height: 50px;
-  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .container_product_info {
@@ -49,7 +58,10 @@ section {
   text-align: justify;
   font-weight: 500;
   height: 100px;
-  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 .container_product_info p {
@@ -64,4 +76,26 @@ section {
 .alert {
   color: #a83232;
   margin-top: 20px;
+}
+
+@media screen and (max-width: 430px) {
+  .card_lend {
+    width: 90%;
+  }
+
+  .container_confirmation {
+    height: 80px;
+    flex-direction: column-reverse;
+  }
+
+  .card_lend {
+    position: relative;
+    bottom: 80px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .title_welcome {
+    height: 150px;
+  }
 }
