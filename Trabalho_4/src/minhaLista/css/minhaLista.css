@@ -89,6 +89,14 @@ td > a:hover {
   border-bottom: 2px solid var(--letters-color);
 }
 
+.alert {
+  color: #ff0000;
+}
+
+.done {
+  color: #008000;
+}
+
 @media screen and (max-width: 700px) {
   table thead {
     display: none;
