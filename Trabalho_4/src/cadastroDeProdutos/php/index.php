@@ -20,49 +20,57 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
     <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
     <link rel="stylesheet" href="../../utils//global_css//links.css">
     <link rel="stylesheet" href="../../utils//global_css//buttons.css">
-    <link rel="stylesheet" href="../css//cadastroDeProdutos.css">
+    <link rel="stylesheet" href="../css/cadastroDeProdutos.css">
     <title>Programação Web - PUC-Pr</title>
 </head>
 
 <body>
-    <header class="display_flex">
-        <div class="display_flex_row container_list bem_vindo">
+    <header>
+        <div class="title_welcome">
             <h1>Cadastro de Produtos</h1>
             <?php
-            echo "<p>Bem-vindo(a) administrador(a) " . $_SESSION['userName'] . " </p> ";
+            echo "<p>Administrador(a) " . $_SESSION['userName'] . " </p> ";
             ?>
         </div>
-        <nav class="container_list">
-            <ul class="box_list">
+        <nav>
+            <ul>
                 <li><a href="../../minhaLista/php">Minha Lista</a></li>
                 <li><a href="../../listaProdutos/php/">Lista de Produtos</a></li>
                 <li><a href="../../cadastroUsuario/php/">Cadastro de Usuários</a></li>
                 <li><a href="../../meusDados/php/">Configuração do Usuário</a></li>
                 <li><a href="../../listaDeUsuarios/php/">Lista de usuários</a></li>
-                <form action="../../utils//logout.php" method="get">
-                    <button type="submit" class="logout_btn">Sair</button>
-                </form>
             </ul>
         </nav>
+        <form action="../../utils//logout.php" method="get">
+            <button type="submit" class="logout_btn">Sair</button>
+        </form>
     </header>
     <main class="display_flex_col">
         <section class="display_flex_col">
             <article class="display_flex_col">
+
+
                 <form action="#" method="post" class="form">
                     <label for="nome_produto">Nome do Produto: <span> *</span></label>
                     <input type="text" name="nome_produto" required>
-                    <button type="submit" name="produtosBtn" class="atualizar_btn">Cadastrar</button>
+
+                    <div class="confirmed">
+                        <a href="../../listaProdutos//php/" class="links">Cancelar</a>
+                        <button type="submit" name="produtosBtn" class="atualizar_btn">Cadastrar</button>
+                    </div>
                     <span>* Campo Obrigatório</span>
                 </form>
 
-                <?php
-                require_once('doProductsRegister.php');
-                $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+                <div>
+                    <?php
+                    require_once('doProductsRegister.php');
+                    $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-                if (!is_null($dados['nome_produto'])) {
-                    doProductsRegister($dados['nome_produto']);
-                }
-                ?>
+                    if (!is_null($dados['nome_produto'])) {
+                        doProductsRegister($dados['nome_produto']);
+                    }
+                    ?>
+                </div>
             </article>
         </section>
     </main>
