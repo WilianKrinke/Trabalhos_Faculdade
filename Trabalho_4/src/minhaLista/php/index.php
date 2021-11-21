@@ -16,32 +16,33 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
     <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
     <link rel="stylesheet" href="../../utils//global_css//links.css">
     <link rel="stylesheet" href="../../utils//global_css//buttons.css">
-    <link rel="stylesheet" href="../css//minhaLista.css">
+    <link rel="stylesheet" href="../css/minhaLista.css">
     <title>Programação Web - PUC-Pr</title>
 </head>
 
 <body>
-    <header class="display_flex_col">
-        <div class="display_flex_row container_list bem_vindo">
-            <h1>Minha Lista</h1>
-            <?php
-            if ($_SESSION['isAdm'] == 1) {
-                echo "<p>Bem-vindo(a) administrador(a) " . $_SESSION['userName'] . " </p> ";
-            } else {
-                echo "<p>Bem-vindo(a) " . $_SESSION['userName'] . " </p> ";
-            }
-            ?>
+    <header>
+        <div class="title_welcome">
+            <div>
+                <h1 class="title">Minha Lista</h1>
+            </div>
+            <div class="bem_vindo">
+                <?php
+                if ($_SESSION['isAdm'] == 1) {
+                    echo "<p>Administrador(a) " . $_SESSION['userName'] . " </p> ";
+                } else {
+                    echo "<p>Bem-vindo(a) " . $_SESSION['userName'] . " </p> ";
+                }
+                ?>
+            </div>
         </div>
-        <nav class="container_list">
-            <ul class="box_list">
+        <nav>
+            <ul>
                 <?php
                 if ($_SESSION['isAdm'] == 0) {
                     echo '
                     <li><a href="../../listaProdutos/php/">Lista de Produtos</a></li>
                     <li><a href="../../meusDados/php/">Meus Dados</a></li>
-                    <form action="../../utils//logout.php" method="get">
-                        <button type="submit" class="logout_btn">Sair</button>
-                    </form>
                     ';
                 } else if ($_SESSION['isAdm'] == 1) {
                     echo '                    
@@ -50,14 +51,14 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                     <li><a href="../../cadastroUsuario/php/">Cadastro de Usuários</a></li>
                     <li><a href="../../meusDados/php/">Meus Dados</a></li>
                     <li><a href="../../listaDeUsuarios/php/">Lista de usuários</a></li>
-                    <form action="../../utils//logout.php" method="get">
-                        <button type="submit" class="logout_btn">Sair</button>
-                    </form>
                     ';
                 }
                 ?>
             </ul>
         </nav>
+        <form action="../../utils//logout.php" method="get">
+            <button type="submit" class="logout_btn">Sair</button>
+        </form>
     </header>
     <main class="display_flex_col">
         <section class="display_flex_col">
@@ -66,7 +67,6 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                 require_once('./getMyProducts.php');
                 getMyProducts($_SESSION['userId']);
                 ?>
-
             </article>
         </section>
     </main>

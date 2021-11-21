@@ -19,8 +19,8 @@ function getMyProducts($idUserLogged)
             <thead>
                 <tr>
                     <th>Nome do Produto</th>
-                    <th>Dia do Empréstimo</th>
-                    <th>Dia de Devolução</th>
+                    <th>Data do Empréstimo</th>
+                    <th>Data de Devolução</th>
                     <th>Status</th>
                 </tr>
             </thead>
