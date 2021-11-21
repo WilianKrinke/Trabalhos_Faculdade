@@ -32,18 +32,19 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
             echo "<p>Bem-vindo(a) administrador(a) " . $_SESSION['userName'] . " </p> ";
             ?>
         </div>
-        <nav class="container_list">
+        <nav>
             <ul class="box_list">
                 <li><a href="../../minhaLista/php/">Minha Lista</a></li>
                 <li><a href="../../cadastroDeProdutos/php/">Cadastro de Produtos</a> </li>
                 <li><a href="../../cadastroUsuario/php/">Cadastro de Usuários</a></li>
                 <li><a href="../../meusDados/php/">Meus Dados</a></li>
                 <li><a href="../../listaProdutos/php/">Lista de Produtos</a></li>
-                <form action="../../utils//logout.php" method="get">
-                    <button type="submit" class="logout_btn">Sair</button>
-                </form>
+
             </ul>
         </nav>
+        <form action="../../utils//logout.php" method="get">
+            <button type="submit" class="logout_btn">Sair</button>
+        </form>
     </header>
     <main class="display_flex_col">
         <section class="display_flex_col">

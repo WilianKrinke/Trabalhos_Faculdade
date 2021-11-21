@@ -16,38 +16,44 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
     <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
     <link rel="stylesheet" href="../../utils//global_css//buttons.css">
     <link rel="stylesheet" href="../../utils//global_css//links.css">
-    <link rel="stylesheet" href="../css/cadastroUsuario.css">
+    <link rel="stylesheet" href="../css//cadastroUsuario.css">
     <title>Programação Web - PUC - Pr</title>
 </head>
 
 <body>
-    <header class="display_flex_col">
-        <div class="container_list display_flex_row bem_vindo">
-            <h1>Cadastro de Usuário</h1>
-            <?php
-            if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == true)) {
-                if ($_SESSION['isAdm'] == 1) {
-                    echo "<p>Bem-vindo(a) administrador(a) " . $_SESSION['userName'] . " </p> ";
+    <header>
+        <div class="title_welcome">
+            <div>
+                <h1 class="title">Cadastro de Usuário</h1>
+            </div>
+            <div>
+                <?php
+                if (isset($_SESSION['isAdm'])) {
+                    if ($_SESSION['isAdm'] == 1) {
+                        echo "<p>Administrador(a) " . $_SESSION['userName'] . " </p> ";
+                    } else {
+                        echo "<p>Bem-vindo(a) " . $_SESSION['userName'] . " </p> ";
+                    }
                 }
-            }
-            ?>
+                ?>
+            </div>
         </div>
         <?php
         if (isset($_SESSION['isAdm'])) {
             if ($_SESSION['isAdm'] == 1) {
                 echo '
-                    <nav class="container_list">
-                        <ul class="box_list">
+                    <nav>
+                        <ul>
                             <li><a href="../../minhaLista/php">Minha Lista</a></li>
                             <li><a href="../../listaProdutos/php/">Lista de Produtos</a></li>
                             <li><a href="../..//cadastroDeProdutos/php/">Cadastro de Produtos</a></li>
                             <li><a href="../../meusDados/php">Meus Dados</a></li>
                             <li><a href="../../listaDeUsuarios/php/">Lista de usuários</a></li>
-                            <form action="../../utils//logout.php" method="get">
-                                <button type="submit" class="logout_btn">Sair</button>
-                            </form>
-                        </ul>                    
+                            </ul>                    
                     </nav>
+                    <form action="../../utils//logout.php" method="get">
+                        <button type="submit" class="logout_btn">Sair</button>
+                    </form>
                     ';
             }
         }
@@ -55,21 +61,20 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
     </header>
     <main class="display_flex_col">
         <section class="display_flex_col">
-            <article class="display_flex_col">
+            <article>
 
-
-                <form action="#" method="post" class="form" autocomplete="on" class="display_flex_col">
-                    <div>
+                <form action="#" method="post" class="form" autocomplete="on">
+                    <div class="div_form">
                         <label for="name">Nome de Usuário:</label>
                         <input type="text" name="name" id="name" title="Digite seu primeiro nome" required autofocus><span> *</span>
                     </div>
 
-                    <div>
+                    <div class="div_form_birth">
                         <label for="birthday">Data de Nascimento:</label>
                         <input type="date" name="birthday" id="birthday" min="1940-01-01" title="Escolha sua data de nascimento" required pattern="/(\d{4})[-.\/](\d{2})[-.\/](\d{2})/"><span> *</span>
                     </div>
 
-                    <div>
+                    <div class="div_form">
                         <label for="email">E-mail:</label>
                         <input type="email" name="email" id="last-name" title="Digite seu e-mail" required><span> *</span>
                     </div>
@@ -97,18 +102,18 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
                     ?>
 
                     <div class="display_flex_col container_pass">
-                        <div class="display_flex_row">
+                        <div class="display_flex_row first_pass">
                             <label for="pass">Senha do usuário:</label>
                             <input type="password" name="pass" id="pass" minlength="6" maxlength="9" title="Senha com no minimo 4 caracteres e máximo de 9 caracteres" required><span> *</span>
                         </div>
 
-                        <div class="display_flex_row">
+                        <div class="display_flex_row repeat_pass">
                             <label for="confirmed-pass">Confirme a senha:</label>
                             <input type="password" name="confirmed-pass" id="confirmed-pass" minlength="4" maxlength="9" title="Repita a senha" required><span> *</span>
                         </div>
                     </div>
 
-                    <div class="display_flex_row box_confirmed">
+                    <div class="confirmed">
                         <?php
                         if (!(isset($_SESSION['userName']) == true) and !(isset($_SESSION['isAdm']) == true)) {
                             echo "<a href='http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/src/home/php/' class='cadastrar'>Página Inicial</a>";

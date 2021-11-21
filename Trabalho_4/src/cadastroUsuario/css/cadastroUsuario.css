@@ -12,29 +12,33 @@
   flex-direction: row;
 }
 
-.container_list {
-  width: 100%;
-  padding: 14px 0px;
-}
-
 section {
   width: 100%;
   min-height: 70vh;
 }
 
 article {
-  width: 100%;
+  width: 600px;
   min-height: 70vh;
+  background-color: #efc88b;
+  border: 5px solid #daca9b;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
-.container_list {
+.title_welcome {
   width: 100%;
-  padding: 14px 0px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
-.bem_vindo p {
-  position: absolute;
-  right: 50px;
+.title_welcome p {
   letter-spacing: 3px;
 }
 
@@ -42,7 +46,7 @@ article {
   min-height: 450px;
   width: 95%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
 }
@@ -55,34 +59,70 @@ article {
   height: 70px;
 }
 
-form a {
-  border: none;
+.confirmed {
+  width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 160px;
-  height: 40px;
-  text-align: center;
-  text-decoration: none;
-  color: #383124;
-  background-color: transparent;
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s ease-in-out;
-}
-
-form a:hover {
-  color: #050517;
-  border-bottom: 2px solid #050517;
-}
-
-.box_confirmed {
-  width: 500px;
+  justify-content: space-evenly;
+  flex-direction: row;
 }
 
 .done {
-  color: #32a852;
+  color: #008000;
 }
 
 .alert {
-  color: #a83232;
+  color: #ff0000;
+}
+
+@media screen and (max-width: 660px) {
+  article {
+    width: 90%;
+    margin: 20px 0px;
+    padding: 20px;
+  }
+
+  .div_form {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  .div_form_birth {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  .container_pass {
+    height: 140px;
+  }
+
+  .first_pass {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  .repeat_pass {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  .form {
+    min-height: 550px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .title_welcome {
+    height: 120px;
+  }
 }

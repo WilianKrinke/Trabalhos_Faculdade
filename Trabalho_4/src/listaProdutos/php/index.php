@@ -26,7 +26,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
             <div>
                 <h1 class="title">Lista de Produtos</h1>
             </div>
-            <div class="bem_vindo">
+            <div>
                 <?php
                 if ($_SESSION['isAdm'] == 1) {
                     echo "<p>Administrador(a) " . $_SESSION['userName'] . " </p> ";
