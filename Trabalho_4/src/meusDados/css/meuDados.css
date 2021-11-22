@@ -181,4 +181,12 @@ article {
   .data_box p {
     text-align: center;
   }
+
+  .form {
+    height: 150px;
+  }
+
+  .box_update {
+    height: 180px;
+  }
 }
