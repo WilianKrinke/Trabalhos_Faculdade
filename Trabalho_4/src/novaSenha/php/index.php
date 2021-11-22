@@ -80,7 +80,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                     </div>
 
                     <div class="confirmed">
-                        <a href="../../meusDados/" class="links">Cancelar</a>
+                        <a href="../../meusDados/php/" class="links">Cancelar</a>
                         <button type="submit" class="atualizar_senha_btn">Atualizar Senha</button>
                     </div>
                 </form>

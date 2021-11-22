@@ -20,26 +20,29 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
     <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
     <link rel="stylesheet" href="../../utils//global_css/links.css">
     <link rel="stylesheet" href="../../utils//global_css//buttons.css">
-    <link rel="stylesheet" href="../css//listaDeUsuarios.css">
+    <link rel="stylesheet" href="../css/listaDeUsuarios.css">
     <title>Programação Web - PUC-Pr</title>
 </head>
 
 <body>
-    <header class="display_flex_col">
-        <div class="display_flex_row container_list bem_vindo">
-            <h1>Lista de Usuários</h1>
-            <?php
-            echo "<p>Bem-vindo(a) administrador(a) " . $_SESSION['userName'] . " </p> ";
-            ?>
+    <header>
+        <div class="title_welcome">
+            <div>
+                <h1 class="title">Lista de Usuários</h1>
+            </div>
+            <div>
+                <?php
+                echo "<p class='welcome'>Administrador(a) " . $_SESSION['userName'] . " </p> ";
+                ?>
+            </div>
         </div>
         <nav>
-            <ul class="box_list">
+            <ul>
+                <li><a href="../../listaProdutos/php/">Lista de Produtos</a></li>
                 <li><a href="../../minhaLista/php/">Minha Lista</a></li>
                 <li><a href="../../cadastroDeProdutos/php/">Cadastro de Produtos</a> </li>
                 <li><a href="../../cadastroUsuario/php/">Cadastro de Usuários</a></li>
                 <li><a href="../../meusDados/php/">Meus Dados</a></li>
-                <li><a href="../../listaProdutos/php/">Lista de Produtos</a></li>
-
             </ul>
         </nav>
         <form action="../../utils//logout.php" method="get">
@@ -66,7 +69,6 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
             </article>
         </section>
     </main>
-
 </body>
 
 </html>
