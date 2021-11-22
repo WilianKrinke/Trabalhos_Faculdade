@@ -16,7 +16,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
     <link rel="stylesheet" href="../../utils//global_css/globalCss.css">
     <link rel="stylesheet" href="../../utils//global_css//buttons.css">
     <link rel="stylesheet" href="../../utils/global_css/links.css">
-    <link rel="stylesheet" href="../css/emprestarProduto.css">
+    <link rel="stylesheet" href="../css//emprestarProduto.css">
     <title>Programação Web - PUC-Pr</title>
 </head>
 
