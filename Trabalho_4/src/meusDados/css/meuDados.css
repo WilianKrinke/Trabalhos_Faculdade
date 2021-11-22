@@ -34,7 +34,7 @@ article {
   flex-direction: column;
 }
 
-.title_welcome p {
+.welcome {
   letter-spacing: 3px;
 }
 

@@ -30,9 +30,9 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
         <div>
             <?php
             if ($_SESSION['isAdm'] == 1) {
-                echo "<p>Administrador(a) " . $_SESSION['userName'] . " </p> ";
+                echo "<p class='welcome'>Administrador(a) " . $_SESSION['userName'] . " </p> ";
             } else {
-                echo "<p>Bem-vindo(a) " . $_SESSION['userName'] . " </p> ";
+                echo "<p class='welcome'>Bem-vindo(a) " . $_SESSION['userName'] . " </p> ";
             }
             ?>
         </div>
