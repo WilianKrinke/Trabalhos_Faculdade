@@ -81,9 +81,7 @@ section {
   }
 
   .confirmed {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    height: 80px;
     flex-direction: column-reverse;
   }
 }
