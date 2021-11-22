@@ -75,7 +75,7 @@ section {
   }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 370px) {
   .container_product_info {
     height: 200px;
   }
