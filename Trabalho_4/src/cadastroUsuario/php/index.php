@@ -64,7 +64,7 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
         <section class="display_flex_col">
             <article>
 
-                <form action="#" method="post" class="form">
+                <form action="#" method="post" class="form" autocomplete="off">
                     <div class="div_form">
                         <label for="name">Nome de Usuário:</label>
                         <input type="text" name="name" id="name" title="Digite seu primeiro nome" required autofocus><span> *</span>

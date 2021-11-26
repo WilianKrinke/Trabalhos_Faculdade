@@ -20,7 +20,7 @@
         <section class="display_flex_col">
             <article class="display_flex_col">
 
-                <form action="#" method="post" class="form">
+                <form action="#" method="post" class="form" autocomplete="off">
                     <div class="container_input">
                         <label for="userName" title="UserName" class="label">Usuário:</label>
                         <input type="text" name="userName" id="userName">
