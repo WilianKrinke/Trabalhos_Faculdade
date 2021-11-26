@@ -17,7 +17,7 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
     <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
     <link rel="stylesheet" href="../../utils//global_css//buttons.css">
     <link rel="stylesheet" href="../../utils//global_css//links.css">
-    <link rel="stylesheet" href="../css//cadastroUsuario.css">
+    <link rel="stylesheet" href="../css/cadastroUsuario.css">
     <title>Programação Web - PUC - Pr</title>
 </head>
 
@@ -106,14 +106,20 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
                         <div class="first_pass">
                             <label for="pass">Senha do usuário:</label>
                             <input type="password" name="pass" id="pass" minlength="6" maxlength="15" title="Senha com no minimo 4 caracteres e máximo de 9 caracteres" required>
-                            <i id="eye" class="far fa-eye"></i>
+
+                            <i id="eye_closed" class="far fa-eye-slash"></i>
+                            <i id="eye_open" class="far fa-eye not_see"></i>
+
                             <span> *</span>
                         </div>
 
                         <div class="repeat_pass">
                             <label for="confirmed-pass">Confirme a senha:</label>
                             <input type="password" name="confirmed-pass" id="confirmed-pass" minlength="4" maxlength="15" title="Repita a senha" required>
-                            <i id="eye2" class="far fa-eye"></i>
+
+                            <i id="eye_closed2" class="far fa-eye-slash"></i>
+                            <i id="eye_open2" class="far fa-eye not_see"></i>
+
                             <span> *</span>
                         </div>
                     </div>

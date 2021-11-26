@@ -55,12 +55,22 @@ article {
   height: 100px;
 }
 
-#eye {
+#eye_closed {
   color: rgb(53, 53, 53);
   cursor: pointer;
 }
 
-#eye2 {
+#eye_closed2 {
+  color: rgb(53, 52, 52);
+  cursor: pointer;
+}
+
+#eye_open {
+  color: rgb(53, 53, 53);
+  cursor: pointer;
+}
+
+#eye_open2 {
   color: rgb(53, 52, 52);
   cursor: pointer;
 }
@@ -107,6 +117,10 @@ article {
 
 .alert {
   color: #ff0000;
+}
+
+.not_see {
+  display: none;
 }
 
 @media screen and (max-width: 660px) {

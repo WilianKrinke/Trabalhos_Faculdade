@@ -1,22 +1,36 @@
-const passEl = document.getElementById('pass');
-const confirmedPassEl = document.getElementById('confirmed-pass');
+const passDomEl = document.getElementById('pass');
+const confirmedDomPassEl = document.getElementById('confirmed-pass');
 
-const buttonEl = document.getElementById('eye');
-const buttonConfirmedEl = document.getElementById('eye2');
+const eye_closed = document.getElementById('eye_closed');
+const eye_closed2 = document.getElementById('eye_closed2');
 
+const eye_open = document.getElementById('eye_open');
+const eye_open2 = document.getElementById('eye_open2');
 
-buttonEl.addEventListener('click', () => {
-    if (passEl.hasAttribute('type')) {
-        passEl.removeAttribute('type')
-    } else {
-        passEl.setAttribute('type', 'password')
-    }
+eye_closed.addEventListener('click', () => {
+    if (passDomEl.hasAttribute('type')) {
+        passDomEl.removeAttribute('type')
+        eye_closed.classList.add('not_see');
+        eye_open.classList.remove('not_see');
+    } 
 })
 
-buttonConfirmedEl.addEventListener('click', () => {
-    if (confirmedPassEl.hasAttribute('type')) {
-        confirmedPassEl.removeAttribute('type')
-    } else {
-        confirmedPassEl.setAttribute('type', 'password')
-    }
+eye_open.addEventListener('click', () => {
+    passDomEl.setAttribute('type', 'password')
+    eye_open.classList.add('not_see');
+    eye_closed.classList.remove('not_see');
+})
+
+eye_closed2.addEventListener('click', () => {
+    if (confirmedDomPassEl.hasAttribute('type')) {
+        confirmedDomPassEl.removeAttribute('type')
+        eye_closed2.classList.add('not_see');
+        eye_open2.classList.remove('not_see');
+    } 
+})
+
+eye_open2.addEventListener('click', () => {
+    confirmedDomPassEl.setAttribute('type', 'password')
+    eye_open2.classList.add('not_see');
+    eye_closed2.classList.remove('not_see');
 })

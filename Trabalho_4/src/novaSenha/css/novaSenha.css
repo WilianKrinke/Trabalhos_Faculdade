@@ -79,14 +79,28 @@ article {
   flex-direction: row;
 }
 
-#eye {
+#eye_closed {
   color: rgb(53, 53, 53);
   cursor: pointer;
 }
 
-#eye2 {
+#eye_closed2 {
   color: rgb(53, 52, 52);
   cursor: pointer;
+}
+
+#eye_open {
+  color: rgb(53, 53, 53);
+  cursor: pointer;
+}
+
+#eye_open2 {
+  color: rgb(53, 52, 52);
+  cursor: pointer;
+}
+
+.not_see {
+  display: none;
 }
 
 .done {
