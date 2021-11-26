@@ -90,11 +90,11 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
                                 <label for="typeuser">Type of user: <span> *</span></label>
                             <div>
                                 <input type="radio" name="typeuser" id="commonuser" value="0" checked>
-                                <label for="commonuser">Common User</label>
+                                <label for="commonuser">Usuário Comum</label>
                             </div>
                                 <div>
                                     <input type="radio" name="typeuser" id="adm" value="1">
-                                    <label for="adm">Administrator</label>
+                                    <label for="adm">Administrador</label>
                                 </div>
                             </div>
                         ';
