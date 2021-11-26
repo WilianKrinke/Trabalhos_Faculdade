@@ -1,7 +1,6 @@
 <?php
 
 function dataValidator($datas)
-//INCLUIR VERIFICAÇÃO SE HÁ USUARIOS COM O MESMO NOME E EMAIL
 {
     $name = $datas['name'];
     $birthday = $datas['birthday'];
@@ -101,7 +100,7 @@ function emailValidator($email)
 
 function passValidator($pass)
 {
-    $padrao_pass = "/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,9}$/";
+    $padrao_pass = "/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,15}$/";
     $isValidPass = preg_match($padrao_pass, $pass);
 
     $messageOk = "OK";

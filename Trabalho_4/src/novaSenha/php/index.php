@@ -13,10 +13,11 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
     <link rel="stylesheet" href="../../utils//global_css/buttons.css">
     <link rel="stylesheet" href="../../utils//global_css//links.css">
-    <link rel="stylesheet" href="../css/novaSenha.css">
+    <link rel="stylesheet" href="../css//novaSenha.css">
 
     <title>Programação Web - PUC-Pr</title>
 </head>
@@ -70,12 +71,16 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                     <div class="container_pass">
                         <div class="container_input_pass">
                             <label for="pass">Nova senha: </label>
-                            <input type="password" name="pass" id="pass" minlength="6" maxlength="9" title="Senha com no minimo 4 caracteres e máximo de 9 caracteres" required><span> *</span>
+                            <input type="password" name="pass" id="pass" minlength="6" maxlength="15" title="Senha com no minimo 4 caracteres e máximo de 9 caracteres" required>
+                            <i id="eye" class="far fa-eye"></i>
+                            <span> * </span>
                         </div>
 
                         <div class="container_input_pass">
                             <label for="confirmed-pass">Confirme a senha:</label>
-                            <input type="password" name="confirmed-pass" id="confirmed-pass" minlength="4" maxlength="9" title="Repita a senha" required><span> *</span>
+                            <input type="password" name="confirmed-pass" id="confirmed-pass" minlength="4" maxlength="15" title="Repita a senha" required>
+                            <i id="eye2" class="far fa-eye"></i>
+                            <span> * </span>
                         </div>
                     </div>
 
@@ -104,7 +109,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
 
         </section>
     </main>
-
+    <script src="./index.js"></script>
 </body>
 
 </html>

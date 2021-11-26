@@ -13,6 +13,7 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="../../utils//global_css//globalCss.css">
     <link rel="stylesheet" href="../../utils//global_css//buttons.css">
     <link rel="stylesheet" href="../../utils//global_css//links.css">
@@ -63,7 +64,7 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
         <section class="display_flex_col">
             <article>
 
-                <form action="#" method="post" class="form" autocomplete="on">
+                <form action="#" method="post" class="form">
                     <div class="div_form">
                         <label for="name">Nome de Usuário:</label>
                         <input type="text" name="name" id="name" title="Digite seu primeiro nome" required autofocus><span> *</span>
@@ -101,15 +102,19 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
                     }
                     ?>
 
-                    <div class="display_flex_col container_pass">
-                        <div class="display_flex_row first_pass">
+                    <div class="container_pass">
+                        <div class="first_pass">
                             <label for="pass">Senha do usuário:</label>
-                            <input type="password" name="pass" id="pass" minlength="6" maxlength="9" title="Senha com no minimo 4 caracteres e máximo de 9 caracteres" required><span> *</span>
+                            <input type="password" name="pass" id="pass" minlength="6" maxlength="15" title="Senha com no minimo 4 caracteres e máximo de 9 caracteres" required>
+                            <i id="eye" class="far fa-eye"></i>
+                            <span> *</span>
                         </div>
 
-                        <div class="display_flex_row repeat_pass">
+                        <div class="repeat_pass">
                             <label for="confirmed-pass">Confirme a senha:</label>
-                            <input type="password" name="confirmed-pass" id="confirmed-pass" minlength="4" maxlength="9" title="Repita a senha" required><span> *</span>
+                            <input type="password" name="confirmed-pass" id="confirmed-pass" minlength="4" maxlength="15" title="Repita a senha" required>
+                            <i id="eye2" class="far fa-eye"></i>
+                            <span> *</span>
                         </div>
                     </div>
 
@@ -153,6 +158,7 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
             </article>
         </section>
     </main>
+    <script src="index.js"></script>
 </body>
 
 </html>

@@ -4,8 +4,6 @@ include('./upDateValidator.php');
 
 $newBirthday = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-
-
 $queryUpDateBirthday = "UPDATE fundamentosweb.users SET birthday = :newBirthday WHERE idUser = :userId";
 
 $upDate = $connection->prepare($queryUpDateBirthday);

@@ -78,7 +78,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                     <div class="box_update">
                         <form class="form" action="./upDateName.php" method="post" autocomplete="on" name="userName">
                             <label for="name">Nome de Usuário:</label>
-                            <input type="text" name="name" id="name" title="Digite seu primeiro nome" required autofocus pattern="/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/"><span> *</span>
+                            <input type="text" name="name" id="name" title="Digite seu primeiro nome" required autofocus><span> *</span>
                             <?php
                             $idUser = $_SESSION['userId'];
                             echo "<input type='hidden' name='id' value='$idUser'>";
@@ -102,7 +102,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                     <div class="box_update">
                         <form class="form" action="./upDateEmail.php" method="post" autocomplete="on" name="email">
                             <label for="email">E-mail:</label>
-                            <input type="email" name="email" id="last-name" title="Digite seu e-mail" required pattern="/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/"><span> *</span>
+                            <input type="email" name="email" id="last-name" title="Digite seu e-mail" required><span> *</span>
                             <?php
                             $idUser = $_SESSION['userId'];
                             echo "<input type='hidden' name='id' value='$idUser'>";

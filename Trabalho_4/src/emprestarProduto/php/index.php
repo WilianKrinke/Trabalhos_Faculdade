@@ -69,8 +69,10 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                     <?php
                     $oneWeekLater = time() + (7 * 24 * 60 * 60);
 
+                    $oneDay = time() + (60 * 60 * 24);
+
                     $todayLocalDate = date("d-m-Y");
-                    $devolutionLocalDate = date("d-m-Y", $oneWeekLater);
+                    $devolutionLocalDate = date("d-m-Y", $oneDay);
 
                     echo "<p>O usuário " . $_SESSION['userName'] . " emprestará o produto: <strong>&quot" . $_GET['nome_produto'] . "&quot</strong>, no dia <strong>$todayLocalDate</strong>, com data de devolução para o dia <strong>$devolutionLocalDate</strong>.</p>";
                     ?>
