@@ -111,7 +111,6 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                         </form>
                     </div>
                     <span> * Campos obrigatórios</span>
-
                     <a href="../../novaSenha/php/">Atualizar Senha</a>
                 </div>
             </article>

@@ -12,9 +12,9 @@ function getDatas($idProducts)
     if ($userDatas->rowCount()) {
         while ($row_data = $userDatas->fetch(PDO::FETCH_ASSOC)) {
             echo "
-                <p><strong>Nome do usuário:</strong> " . $row_data['userName'] . "</p>
-                <p><strong>E-mail:</strong> " . $row_data['email'] . "</p>
-                <p><strong>Data de nascimento:</strong> " . $row_data['birthday'] . "</p>                
+                <p align='center'><strong>Nome do usuário:</strong> " . $row_data['userName'] . "</p>
+                <p align='center'><strong>Data de nascimento:</strong> " . date('d/m/Y', strtotime($row_data['birthday'])) . "</p>                
+                <p align='center'><strong>E-mail:</strong> " . $row_data['email'] . "</p>
             ";
         }
     }

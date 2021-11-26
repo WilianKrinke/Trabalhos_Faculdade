@@ -12,9 +12,13 @@ function getUsers()
         while ($row_user = $resultData->fetch(PDO::FETCH_ASSOC)) {
             echo "
                 <tr>
-                    <td>" . $row_user['userName'] . "</td>
-                    <td>" . $row_user['adm'] . "</td>
-                    <td><a href='../../deletarUsuario/php/?id_user=" . $row_user['idUser'] . "&user_name=" . $row_user['userName'] . "'>Excluir</a></td>
+                    <td align='center'>" . $row_user['userName'] . "</td>";
+            if ($row_user['adm'] == 1) {
+                echo "<td align='center'> Sim </td>";
+            } else {
+                echo "<td align='center'> Não </td>";
+            }
+            echo "<td align='center'><a href='../../deletarUsuario/php/?id_user=" . $row_user['idUser'] . "&user_name=" . $row_user['userName'] . "'>Excluir</a></td>
                 </tr>
             ";
         }

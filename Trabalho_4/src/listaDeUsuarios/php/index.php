@@ -56,7 +56,7 @@ if ((!isset($_SESSION['userName']) == true) and (!isset($_SESSION['isAdm']) == t
                     <thead>
                         <tr>
                             <th>Usuário</th>
-                            <th>Administrador - (1 para "sim" - 0 para "não")</th>
+                            <th>Administrador</th>
                         </tr>
                     </thead>
                     <tbody>
