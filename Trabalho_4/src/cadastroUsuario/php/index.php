@@ -50,7 +50,7 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
                             <li><a href="../..//cadastroDeProdutos/php/">Cadastro de Produtos</a></li>
                             <li><a href="../../meusDados/php">Meus Dados</a></li>
                             <li><a href="../../listaDeUsuarios/php/">Lista de Usuários</a></li>
-                            </ul>                    
+                        </ul>                    
                     </nav>
                     <form action="../../utils//logout.php" method="get">
                         <button type="submit" class="logout_btn">Sair</button>
@@ -128,6 +128,8 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
                         <?php
                         if (!(isset($_SESSION['userName']) == true) and !(isset($_SESSION['isAdm']) == true)) {
                             echo "<a href='http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/src/home/php/' class='cadastrar'>Página Inicial</a>";
+                        } else {
+                            echo "<a href='http://localhost/fundamentosweb/Trabalhos_Faculdade/Trabalho_4/src/listaProdutos/php/' class='links'>Cancelar</a>";
                         }
                         ?>
                         <button type="submit" class="atualizar_btn">Cadastrar</button>
