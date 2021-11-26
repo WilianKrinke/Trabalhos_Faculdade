@@ -87,7 +87,7 @@ if ((isset($_SESSION['userName']) == true) and (isset($_SESSION['isAdm']) == tru
                         if ($_SESSION['isAdm'] == 1) {
                             echo '
                             <div class="display_flex_col container_radios">
-                                <label for="typeuser">Type of user: <span> *</span></label>
+                                <label for="typeuser">Tipo de Usuário: <span> *</span></label>
                             <div>
                                 <input type="radio" name="typeuser" id="commonuser" value="0" checked>
                                 <label for="commonuser">Usuário Comum</label>
