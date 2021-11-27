@@ -14,8 +14,7 @@ public class Bubble_Sort {
 					vetor[j] = vetor[i];
 					vetor[i] = aux;					
 				}				
-			}
-			
+			}			
 		}
 		
 		for (int i = 0; i < vetor.length; i++) {

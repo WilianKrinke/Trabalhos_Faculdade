@@ -60,19 +60,21 @@ public class Merge_Sort {
 	}
 
 	public static void main(String[] args) {
-		int vetor[] = {915,951,5,1,95,15,19,519,51,95,195,1,951,6,12,16,21,6};
+		int [] vetor = new int[10];
+		
+		for (int i = 0; i < vetor.length; i++) {
+			vetor[i] = (int) Math.floor(Math.random() * vetor.length);
+		}
 		
 		System.out.println("Desordenado");
 		for (int i = 0; i < vetor.length; i++) {
 			System.out.print(vetor[i] + " ");
-		}
-		
+		}		
 		System.out.println("\n");
-		System.out.println("Ordenado");
 		
 		mergeSort(vetor);
 		
-		
+		System.out.println("Ordenado");
 		for (int i = 0; i < vetor.length; i++) {
 			System.out.print(vetor[i] + " ");
 		}
