@@ -13,4 +13,4 @@
 <p>Desenvolvimento de um CRUD com html, css, php e mysql</p>
 
 <h2>Trabalho 5</h2>
-<p>Desenvolvimento de métodos de inserção e remoção de nós em estrutura de dados do tipo lista e árvore binária. Desenvolvido em java</p>
+<p>Desenvolvimento de métodos de inserção e remoção de nós em estrutura de dados do tipo lista e árvore binária e métodos de ordenação de vetores. Desenvolvido em java</p>
