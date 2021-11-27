@@ -3,7 +3,7 @@ package metodos_de_ordenacao;
 public class Selection_Sort {
 
 	public static void main(String[] args) {
-		int vetor[] = {18,4,2,6,8,10,16,18,14};
+		int vetor[] = {3,6,8,1,4,9,0};
 		
 		int posicao_menor;
 		int aux; 

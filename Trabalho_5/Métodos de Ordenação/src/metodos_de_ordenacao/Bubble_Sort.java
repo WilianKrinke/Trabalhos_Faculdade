@@ -3,31 +3,22 @@ package metodos_de_ordenacao;
 public class Bubble_Sort {
 
 	public static void main(String[] args) {
-		int vetor[] = {12,2,4,6,8,10};
-		
+		int vetor[] = {3,6,8,1,4,9,0};
 		int aux;
-		boolean control;
 		
 		for (int i = 0; i < vetor.length; i++) {			
-			control = true;
 			
-			for (int j = 0; j < (vetor.length - 1); j++) {
-				if (vetor[j] > vetor[j + 1]) {
+			for (int j = i + 1; j < vetor.length; j++) {
+				if (vetor[i] > vetor[j]) {
 					aux = vetor[j];
-					vetor[j] = vetor[j + 1];
-					vetor[j + 1] = aux;
-					control = false;
+					vetor[j] = vetor[i];
+					vetor[i] = aux;					
 				}				
-			}
-			
-			if (control) {
-				break; 
 			}
 			
 		}
 		
-		
-		for (int i = 0; i < vetor.length; ++i) {
+		for (int i = 0; i < vetor.length; i++) {
 			System.out.print(vetor[i] + " ");
 		}
 	}

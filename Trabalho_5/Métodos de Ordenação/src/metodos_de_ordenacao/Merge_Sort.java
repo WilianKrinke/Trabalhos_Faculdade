@@ -24,10 +24,8 @@ public class Merge_Sort {
 		mergeSort(vetorEsquerda);
 		mergeSort(vetorDireita);
 		
-		//intercalação
-		merge(vetor, vetorEsquerda, vetorDireita);
-		
-		
+		//intercalar
+		merge(vetor, vetorEsquerda, vetorDireita);	
 	}
 	
 	public static void merge(int[] vetorOriginal, int[] vetorEsquerda, int[] vetorDireita) {
