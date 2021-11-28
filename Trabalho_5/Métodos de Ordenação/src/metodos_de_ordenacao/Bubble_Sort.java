@@ -4,6 +4,13 @@ public class Bubble_Sort {
 
 	public static void main(String[] args) {
 		int vetor[] = {3,6,8,1,4,9,0};
+		
+		System.out.println("Vetor Desordenado");
+		for (int i = 0; i < vetor.length; i++) {
+			System.out.print(vetor[i] + " ");
+		}
+		System.out.println("\n");
+		
 		int aux;
 		boolean control;
 		
