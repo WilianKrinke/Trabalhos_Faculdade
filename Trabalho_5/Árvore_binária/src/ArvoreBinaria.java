@@ -38,7 +38,7 @@ public class ArvoreBinaria {
 	
 	public void remover(No no, Integer valor, No pai) {
 		
-		if (valor == no.getValorNo()) {//verifica se o valor do nÛ È igual o valor, assim ele sÛ para quando for igual;
+		if (valor == no.getValorNo()) {//verifica se o valor do n√≥ √© igual o valor, assim ele s√≥ para quando for igual;
 			
 			if ((no.getNoDireita() == null) && (no.getNoEsquerda() == null)) {//folha
 				
@@ -55,7 +55,7 @@ public class ArvoreBinaria {
 				}
 				
 				
-			} else if((no.getNoDireita() != null) && (no.getNoEsquerda() == null)) {//sÛ tem nÛ na direita
+			} else if((no.getNoDireita() != null) && (no.getNoEsquerda() == null)) {//s√≥ tem n√≥ na direita
 								
 				No noSubstituto = no.getNoDireita();
 				No noPaiSubstituto = no;
@@ -66,7 +66,7 @@ public class ArvoreBinaria {
 				}
 				
 				if (pai != null) {					
-					//Insere o substituto no nÛ
+					//Insere o substituto no n√≥
 					if (no.getValorNo() < pai.getValorNo()) {
 						pai.setNoEsquerda(noSubstituto);
 					} else {
@@ -84,7 +84,7 @@ public class ArvoreBinaria {
 					noPaiSubstituto.setNoDireita(null);
 				}
 				
-			} else if((no.getNoEsquerda() != null) && (no.getNoDireita() == null)) {//sÛ tem nÛ na esquerda
+			} else if((no.getNoEsquerda() != null) && (no.getNoDireita() == null)) {//s√≥ tem n√≥ na esquerda
 
 				
 				No noSubstituto = no.getNoEsquerda();
@@ -97,7 +97,7 @@ public class ArvoreBinaria {
 				
 				if (pai != null) {
 					
-					//Insere o substituto no nÛ
+					//Insere o substituto no n√≥
 					if (no.getValorNo() < pai.getValorNo()) {
 						pai.setNoEsquerda(noSubstituto);
 					} else {
@@ -116,7 +116,7 @@ public class ArvoreBinaria {
 				}
 				
 				
-			} else if((no.getNoEsquerda() != null) && (no.getNoDireita() != null)) {//tem nÛ nas duas pontas
+			} else if((no.getNoEsquerda() != null) && (no.getNoDireita() != null)) {//tem n√≥ nas duas pontas
 				
 				No noSubstituto = no.getNoDireita();
 				No noPaiSubstituto = no;
@@ -128,7 +128,7 @@ public class ArvoreBinaria {
 					}
 					
 					noSubstituto.setNoEsquerda(no.getNoEsquerda());
-					//Insere o substituto no nÛ					
+					//Insere o substituto no n√≥					
 					if (no.getValorNo() < pai.getValorNo()) {
 						pai.setNoEsquerda(noSubstituto);
 					} else {
@@ -143,7 +143,7 @@ public class ArvoreBinaria {
 					}
 					
 				} else {
-					System.out.println("entrou condiÁ„o raiz");					
+					System.out.println("entrou condi√ß√£o raiz");					
 					while (noSubstituto.getNoEsquerda() != null) {
 						noPaiSubstituto = noSubstituto;
 						noSubstituto = noSubstituto.getNoEsquerda();
@@ -199,7 +199,7 @@ public class ArvoreBinaria {
 		
 		if (no != null) {			
 			if (no.getValorNo() == valor) {
-				System.out.println("NÛ encontrado");
+				System.out.println("N√≥ encontrado");
 				
 			} else if (no.getValorNo() > valor) {
 				buscarNo(no.getNoDireita(), valor);
@@ -210,7 +210,7 @@ public class ArvoreBinaria {
 			}
 			
 		} else {
-			System.out.println("NÛ n„o encontrado");
+			System.out.println("N√≥ n√£o encontrado");
 		}
 	}
 	
@@ -245,15 +245,15 @@ public class ArvoreBinaria {
 //		
 		arvore1.removerNo(10);
 		
-		System.out.println("In-Ordem");
+		System.out.println("In-Ordem");//visita primeiro a esquerda, passa pela raiz e visita a direita;
 		arvore1.in_ordem(raiz);	
 		
-//		System.out.println("PrÈ-ordem");//visita primeiro a raiz, depois a parte esquerda e depois a parte direita;
+//		System.out.println("Pr√©-ordem");//visita primeiro a raiz, depois a parte esquerda e depois a parte direita;
 //		arvore1.pre_ordem(raiz);
 //		System.out.println("");
 //		System.out.println("");
 //		
-//		System.out.println("PÛs-ordem");//visita primeiro a parte esquerda, depois a parte direita e por ultimo a raiz;
+//		System.out.println("P√≥s-ordem");//visita primeiro a parte esquerda, depois a parte direita e por ultimo a raiz;
 //		arvore1.pos_ordem(raiz);
 		
 		
