@@ -14,3 +14,6 @@
 
 <h2>Trabalho 5</h2>
 <p>Desenvolvimento de métodos de inserção e remoção de nós em estrutura de dados do tipo lista e árvore binária e métodos de ordenação de vetores. Desenvolvido em java</p>
+
+<h2>Trabalho 6</h2>
+<p>Implementação de MapReduce em ambiente hadoop e local</p>
