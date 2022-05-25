@@ -52,8 +52,6 @@ public class Informacao3 {
             }
             
             resultado.set(soma);
- 
-            System.out.println(chave + " | " + resultado);
             
             context.write(chave, resultado);
         }
@@ -63,7 +61,7 @@ public class Informacao3 {
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException{
        
         String entrada_arquivo = "/home2/ead2022/SEM1/wilian.krinke/Documents/base_100_mil.csv";
-        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/Tarefa-3-Semana-3";
+        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/Tarefa-3";
         
         if(args.length == 2){
             entrada_arquivo = args[0];

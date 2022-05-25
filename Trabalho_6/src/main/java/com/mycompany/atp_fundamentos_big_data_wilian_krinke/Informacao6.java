@@ -20,9 +20,9 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
  *
  * @author wilian.krinke
  */
-public class Informacao1 {  
+public class Informacao6 {  
     
-    public static class Implementacao1MapperAtp extends Mapper<Object, Text, Text, IntWritable>{
+    public static class Implementacao6MapperAtp extends Mapper<Object, Text, Text, IntWritable>{
         
         @Override
         public void map(Object id, Text valor, Context context) throws IOException, InterruptedException{
@@ -31,16 +31,16 @@ public class Informacao1 {
             
             IntWritable one = new IntWritable(1);
             
-            if(campos.length == 10){
-                /*Pais que mais aparece na lista*/;                
-               Text pais = new Text(campos[0]);
-               context.write(pais, one);               
+            if(campos.length == 10 && campos[1].equals("2016") && campos[0].equals("Brazil")){
+                /*Mercadoria com maior quantidade de transações financeiras em 2016, no Brazil*/;                
+               Text mercadoria = new Text(campos[3]);
+               context.write(mercadoria, one);               
                 
             }        
         }
     }
     
-    public static class Implementacao1ReducerAtp extends Reducer<Text, IntWritable, Text, IntWritable>{
+    public static class Implementacao6ReducerAtp extends Reducer<Text, IntWritable, Text, IntWritable>{
     
         @Override
         public void reduce(Text chave, Iterable<IntWritable> valores, Context context) throws IOException, InterruptedException{
@@ -52,6 +52,8 @@ public class Informacao1 {
             }
             
             resultado.set(soma);
+ 
+            System.out.println(chave + " | " + resultado);
             
             context.write(chave, resultado);
         }
@@ -61,7 +63,7 @@ public class Informacao1 {
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException{
        
         String entrada_arquivo = "/home2/ead2022/SEM1/wilian.krinke/Documents/base_100_mil.csv";
-        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/Tarefa-1";
+        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/Tarefa-6";
         
         if(args.length == 2){
             entrada_arquivo = args[0];
@@ -69,11 +71,11 @@ public class Informacao1 {
         }
         
         Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "Implementação1.txt");
+        Job job = Job.getInstance(conf, "Implementação6.txt");
         
-        job.setJarByClass(Informacao1.class);
-        job.setMapperClass(Implementacao1MapperAtp.class);
-        job.setReducerClass(Implementacao1ReducerAtp.class);
+        job.setJarByClass(Informacao6.class);
+        job.setMapperClass(Implementacao6MapperAtp.class);
+        job.setReducerClass(Implementacao6ReducerAtp.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
         
