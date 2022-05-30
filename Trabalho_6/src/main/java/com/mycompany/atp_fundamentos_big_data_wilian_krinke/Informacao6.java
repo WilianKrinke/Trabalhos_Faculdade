@@ -51,10 +51,7 @@ public class Informacao6 {
                 soma += valor.get();                
             }
             
-            resultado.set(soma);
- 
-            System.out.println(chave + " | " + resultado);
-            
+            resultado.set(soma);            
             context.write(chave, resultado);
         }
     
@@ -63,7 +60,7 @@ public class Informacao6 {
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException{
        
         String entrada_arquivo = "/home2/ead2022/SEM1/wilian.krinke/Documents/base_100_mil.csv";
-        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/Tarefa-6";
+        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/tarefa6";
         
         if(args.length == 2){
             entrada_arquivo = args[0];
@@ -76,6 +73,7 @@ public class Informacao6 {
         job.setJarByClass(Informacao6.class);
         job.setMapperClass(Implementacao6MapperAtp.class);
         job.setReducerClass(Implementacao6ReducerAtp.class);
+        
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
         

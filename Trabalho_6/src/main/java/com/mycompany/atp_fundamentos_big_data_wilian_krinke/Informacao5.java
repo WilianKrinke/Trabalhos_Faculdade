@@ -52,7 +52,6 @@ public class Informacao5 {
             }
             
             resultado.set(soma);
- 
             context.write(chave, resultado);
         }
     
@@ -61,7 +60,7 @@ public class Informacao5 {
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException{
        
         String entrada_arquivo = "/home2/ead2022/SEM1/wilian.krinke/Documents/base_100_mil.csv";
-        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/Tarefa-5";
+        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/tarefa5";
         
         if(args.length == 2){
             entrada_arquivo = args[0];

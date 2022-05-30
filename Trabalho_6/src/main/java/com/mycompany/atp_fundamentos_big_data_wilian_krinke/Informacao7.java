@@ -8,7 +8,7 @@ package com.mycompany.atp_fundamentos_big_data_wilian_krinke;
 import java.io.IOException;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -22,41 +22,39 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
  */
 public class Informacao7 {  
     
-    public static class Implementacao7MapperAtp extends Mapper<Object, Text, Text, IntWritable>{
+    public static class Implementacao7MapperAtp extends Mapper<Object, Text, Text, LongWritable>{
         
         @Override
-        public void map(Object id, Text valor, Context context) throws IOException, InterruptedException{
-            String linha = valor.toString();
-            String[] campos = linha.split(";");
-            
-            if(campos.length == 10){
-                /*Mercadoria com maior total de peso , de acordo com todas as transações*/;                
-               Text mercadoria = new Text(campos[3]);
-               IntWritable pesosInt = new IntWritable(Integer.parseInt(campos[6]));
+        public void map(Object id, Text valor, Context context) throws IOException, InterruptedException{            
+            try{ 
+                String linha = valor.toString();
+                String[] campos = linha.split(";");
 
-                System.out.println(mercadoria + " | " + pesosInt);               
-               
-               context.write(mercadoria, pesosInt);               
-                
-            }        
+                if(campos.length == 10){
+                    /*Mercadoria com maior total de peso , de acordo com todas as transações*/;                
+                   Text mercadoria = new Text(campos[3]);
+                   LongWritable pesos = new LongWritable(Long.parseLong(campos[6]));
+                   context.write(mercadoria, pesos);
+                } 
+            
+            }catch(Exception e){
+                System.out.println(e);
+            }
         }
     }
     
-    public static class Implementacao7ReducerAtp extends Reducer<Text, IntWritable, Text, IntWritable>{
+    public static class Implementacao7ReducerAtp extends Reducer<Text, LongWritable, Text, LongWritable>{
     
         @Override
-        public void reduce(Text chave, Iterable<IntWritable> valores, Context context) throws IOException, InterruptedException{
+        public void reduce(Text chave, Iterable<LongWritable> valores, Context context) throws IOException, InterruptedException{
             int soma = 0;
-            IntWritable resultado = new IntWritable();
+            LongWritable resultado = new LongWritable();
             
-            for(IntWritable valor : valores){
+            for(LongWritable valor : valores){
                 soma += valor.get();                
             }
             
             resultado.set(soma);
- 
-            System.out.println(chave + " | " + resultado);
-            
             context.write(chave, resultado);
         }
     
@@ -65,7 +63,7 @@ public class Informacao7 {
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException{
        
         String entrada_arquivo = "/home2/ead2022/SEM1/wilian.krinke/Documents/base_100_mil.csv";
-        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/Tarefa-7";
+        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/tarefa7";
         
         if(args.length == 2){
             entrada_arquivo = args[0];
@@ -78,8 +76,9 @@ public class Informacao7 {
         job.setJarByClass(Informacao7.class);
         job.setMapperClass(Implementacao7MapperAtp.class);
         job.setReducerClass(Implementacao7ReducerAtp.class);
+        
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
+        job.setOutputValueClass(LongWritable.class);
         
         FileInputFormat.addInputPath(job, new Path(entrada_arquivo));
         FileOutputFormat.setOutputPath(job, new Path(saida_pasta));

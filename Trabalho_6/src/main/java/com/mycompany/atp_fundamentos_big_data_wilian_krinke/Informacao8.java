@@ -8,7 +8,7 @@ package com.mycompany.atp_fundamentos_big_data_wilian_krinke;
 import java.io.IOException;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -20,34 +20,37 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
  *
  * @author wilian.krinke
  */
-public class Informacao3 {  
+public class Informacao8 {  
     
-    public static class Implementacao3MapperAtp extends Mapper<Object, Text, Text, IntWritable>{
+    public static class Implementacao8MapperAtp extends Mapper<Object, Text, Text, LongWritable>{
         
         @Override
-        public void map(Object id, Text valor, Context context) throws IOException, InterruptedException{
-            String linha = valor.toString();
-            String[] campos = linha.split(";");
+        public void map(Object id, Text valor, Context context) throws IOException, InterruptedException{            
+            try{ 
+                String linha = valor.toString();
+                String[] campos = linha.split(";");
+
+                if(campos.length == 10){
+                    /*Mercadoria com maior total de peso , de acordo com todas as transações, por ano*/;                
+                   Text mercadoria = new Text(campos[3]);
+                   LongWritable pesos = new LongWritable(Long.parseLong(campos[6]));
+                   context.write(mercadoria, pesos);
+                } 
             
-            IntWritable one = new IntWritable(1);
-            
-            if(campos.length == 10){
-                /*Quantidade de transações comerciais realizadas por ano*/;                
-               Text ano = new Text(campos[1]);
-               context.write(ano, one);               
-                
-            }        
+            }catch(Exception e){
+                System.out.println(e);
+            }
         }
     }
     
-    public static class Implementacao3ReducerAtp extends Reducer<Text, IntWritable, Text, IntWritable>{
+    public static class Implementacao8ReducerAtp extends Reducer<Text, LongWritable, Text, LongWritable>{
     
         @Override
-        public void reduce(Text chave, Iterable<IntWritable> valores, Context context) throws IOException, InterruptedException{
+        public void reduce(Text chave, Iterable<LongWritable> valores, Context context) throws IOException, InterruptedException{
             int soma = 0;
-            IntWritable resultado = new IntWritable();
+            LongWritable resultado = new LongWritable();
             
-            for(IntWritable valor : valores){
+            for(LongWritable valor : valores){
                 soma += valor.get();                
             }
             
@@ -60,7 +63,7 @@ public class Informacao3 {
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException{
        
         String entrada_arquivo = "/home2/ead2022/SEM1/wilian.krinke/Documents/base_100_mil.csv";
-        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/tarefa3";
+        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/tarefa8";
         
         if(args.length == 2){
             entrada_arquivo = args[0];
@@ -68,14 +71,13 @@ public class Informacao3 {
         }
         
         Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "Implementação3.txt");
+        Job job = Job.getInstance(conf, "Implementação8.txt");
         
-        job.setJarByClass(Informacao3.class);
-        job.setMapperClass(Implementacao3MapperAtp.class);
-        job.setReducerClass(Implementacao3ReducerAtp.class);
-        
+        job.setJarByClass(Informacao8.class);
+        job.setMapperClass(Implementacao8MapperAtp.class);
+        job.setReducerClass(Implementacao8ReducerAtp.class);
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
+        job.setOutputValueClass(LongWritable.class);
         
         FileInputFormat.addInputPath(job, new Path(entrada_arquivo));
         FileOutputFormat.setOutputPath(job, new Path(saida_pasta));
