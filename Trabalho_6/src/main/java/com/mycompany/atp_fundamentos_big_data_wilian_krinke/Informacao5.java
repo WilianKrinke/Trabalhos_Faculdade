@@ -26,17 +26,21 @@ public class Informacao5 {
         
         @Override
         public void map(Object id, Text valor, Context context) throws IOException, InterruptedException{
-            String linha = valor.toString();
-            String[] campos = linha.split(";");
-            
-            IntWritable one = new IntWritable(1);
-            
-            if(campos.length == 10 && campos[1].equals("2016")){
-                /*Mercadoria com maior quantidade de transações financeiras em 2016*/;                
-               Text mercadoria = new Text(campos[3]);
-               context.write(mercadoria, one);               
-                
-            }        
+            try{
+                String linha = valor.toString();
+                String[] campos = linha.split(";");
+
+                IntWritable one = new IntWritable(1);
+
+                if(campos.length == 10 && campos[1].equals("2016")){
+                    /*Mercadoria com maior quantidade de transações financeiras em 2016*/;                
+                   Text mercadoria = new Text(campos[3]);
+                   context.write(mercadoria, one);  ;
+                }   
+            }catch(Exception e){
+                System.out.println(e);
+            }
+                 
         }
     }
     
@@ -44,15 +48,20 @@ public class Informacao5 {
     
         @Override
         public void reduce(Text chave, Iterable<IntWritable> valores, Context context) throws IOException, InterruptedException{
-            int soma = 0;
-            IntWritable resultado = new IntWritable();
-            
-            for(IntWritable valor : valores){
-                soma += valor.get();                
+            try{
+                int soma = 0;
+                IntWritable resultado = new IntWritable();
+
+                for(IntWritable valor : valores){
+                    soma += valor.get();                
+                }
+
+                resultado.set(soma);
+                context.write(chave, resultado);
+            }catch(Exception e){
+                System.out.println(e);
             }
             
-            resultado.set(soma);
-            context.write(chave, resultado);
         }
     
     }

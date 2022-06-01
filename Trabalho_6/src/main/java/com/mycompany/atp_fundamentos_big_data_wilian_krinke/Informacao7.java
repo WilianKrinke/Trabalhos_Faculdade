@@ -47,15 +47,20 @@ public class Informacao7 {
     
         @Override
         public void reduce(Text chave, Iterable<LongWritable> valores, Context context) throws IOException, InterruptedException{
-            int soma = 0;
-            LongWritable resultado = new LongWritable();
-            
-            for(LongWritable valor : valores){
-                soma += valor.get();                
+            try{
+                int soma = 0;
+                LongWritable resultado = new LongWritable();
+
+                for(LongWritable valor : valores){
+                    soma += valor.get();                
+                }
+
+                resultado.set(soma);
+                context.write(chave, resultado);
+            }catch(Exception e){
+                System.out.println(e);
             }
             
-            resultado.set(soma);
-            context.write(chave, resultado);
         }
     
     }

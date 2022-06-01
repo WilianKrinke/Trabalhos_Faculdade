@@ -8,6 +8,7 @@ package com.mycompany.atp_fundamentos_big_data_wilian_krinke;
 import java.io.IOException;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -31,7 +32,9 @@ public class Informacao8 {
                 String[] campos = linha.split(";");
 
                 if(campos.length == 10){
-                    /*Mercadoria com maior total de peso , de acordo com todas as transações, por ano*/;                
+                    /*Mercadoria com maior total de peso , de acordo com todas as transações, por ano*/
+                    /*FEITO NO HIVE*/
+                   IntWritable ano = new IntWritable(Integer.parseInt(campos[1]));
                    Text mercadoria = new Text(campos[3]);
                    LongWritable pesos = new LongWritable(Long.parseLong(campos[6]));
                    context.write(mercadoria, pesos);
@@ -43,19 +46,35 @@ public class Informacao8 {
         }
     }
     
+    public static class Implementacao8_2MapperAtp extends Mapper<Object, Text, Text, LongWritable>{
+        @Override
+        public void map(Object id, Text valor, Context context) throws IOException, InterruptedException{
+            try{
+                
+            }catch(Exception e){
+                System.out.println(e);
+            }
+        }
+    }
+    
     public static class Implementacao8ReducerAtp extends Reducer<Text, LongWritable, Text, LongWritable>{
     
         @Override
         public void reduce(Text chave, Iterable<LongWritable> valores, Context context) throws IOException, InterruptedException{
-            int soma = 0;
-            LongWritable resultado = new LongWritable();
-            
-            for(LongWritable valor : valores){
-                soma += valor.get();                
+            try{
+                int soma = 0;
+                LongWritable resultado = new LongWritable();
+
+                for(LongWritable valor : valores){
+                    soma += valor.get();                
+                }
+
+                resultado.set(soma);
+                context.write(chave, resultado);
+            }catch(Exception e){
+                System.out.println(e);
             }
             
-            resultado.set(soma);
-            context.write(chave, resultado);
         }
     
     }
@@ -75,6 +94,7 @@ public class Informacao8 {
         
         job.setJarByClass(Informacao8.class);
         job.setMapperClass(Implementacao8MapperAtp.class);
+        job.setMapperClass(Implementacao8_2MapperAtp.class);
         job.setReducerClass(Implementacao8ReducerAtp.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(LongWritable.class);

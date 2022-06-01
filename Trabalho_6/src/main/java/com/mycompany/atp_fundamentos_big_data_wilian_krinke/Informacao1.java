@@ -26,17 +26,21 @@ public class Informacao1 {
         
         @Override
         public void map(Object id, Text valor, Context context) throws IOException, InterruptedException{
-            String linha = valor.toString();
-            String[] campos = linha.split(";");
+            try{
+                String linha = valor.toString();
+                String[] campos = linha.split(";");
             
-            IntWritable one = new IntWritable(1);
+                IntWritable one = new IntWritable(1);
             
-            if(campos.length == 10){
-                /*Pais que mais aparece na lista*/;                
-               Text pais = new Text(campos[0]);
-               context.write(pais, one);               
+                if(campos.length == 10){
+                    /*Pais que mais aparece na lista*/;                
+                   Text pais = new Text(campos[0]);
+                   context.write(pais, one); 
+                } 
                 
-            }        
+            }catch(Exception e){
+                System.out.println(e);
+            }
         }
     }
     
@@ -44,17 +48,21 @@ public class Informacao1 {
     
         @Override
         public void reduce(Text chave, Iterable<IntWritable> valores, Context context) throws IOException, InterruptedException{
-            int soma = 0;
-            IntWritable resultado = new IntWritable();
+            try{
+                int soma = 0;
+                IntWritable resultado = new IntWritable();
             
-            for(IntWritable valor : valores){
-                soma += valor.get();                
-            }
+                for(IntWritable valor : valores){
+                    soma += valor.get();                
+                }
             
-            resultado.set(soma);
-            context.write(chave, resultado);
+                resultado.set(soma);
+                context.write(chave, resultado);
+                
+            }catch(Exception e){
+                System.out.println(e);
+            };
         }
-    
     }
     
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException{
