@@ -27,30 +27,21 @@ public class Informacao8 {
         
         @Override
         public void map(Object id, Text valor, Context context) throws IOException, InterruptedException{            
-            try{ 
+            try{
                 String linha = valor.toString();
                 String[] campos = linha.split(";");
-
+                                                    
                 if(campos.length == 10){
-                    /*Mercadoria com maior total de peso , de acordo com todas as transações, por ano*/
-                    /*FEITO NO HIVE*/
-                   IntWritable ano = new IntWritable(Integer.parseInt(campos[1]));
-                   Text mercadoria = new Text(campos[3]);
-                   LongWritable pesos = new LongWritable(Long.parseLong(campos[6]));
-                   context.write(mercadoria, pesos);
-                } 
+                    /*Mercadoria com maior total de peso , de acordo com todas as transações, por ano*/                    
+                    
+                    Text mercadoria = new Text(campos[3]);
+                    LongWritable pesos = new LongWritable(Long.parseLong(campos[6]));
+                    IntWritable ano = new IntWritable(Integer.parseInt(campos[1]));
+                    
+                    Text chaveConcatenada = new Text(mercadoria + " / " + ano + " / "); 
+                    context.write(chaveConcatenada, pesos);
+                }                
             
-            }catch(Exception e){
-                System.out.println(e);
-            }
-        }
-    }
-    
-    public static class Implementacao8_2MapperAtp extends Mapper<Object, Text, Text, LongWritable>{
-        @Override
-        public void map(Object id, Text valor, Context context) throws IOException, InterruptedException{
-            try{
-                
             }catch(Exception e){
                 System.out.println(e);
             }
@@ -82,7 +73,7 @@ public class Informacao8 {
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException{
        
         String entrada_arquivo = "/home2/ead2022/SEM1/wilian.krinke/Documents/base_100_mil.csv";
-        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/tarefa8";
+        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/local/tarefa8";
         
         if(args.length == 2){
             entrada_arquivo = args[0];
@@ -94,7 +85,6 @@ public class Informacao8 {
         
         job.setJarByClass(Informacao8.class);
         job.setMapperClass(Implementacao8MapperAtp.class);
-        job.setMapperClass(Implementacao8_2MapperAtp.class);
         job.setReducerClass(Implementacao8ReducerAtp.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(LongWritable.class);
