@@ -34,7 +34,7 @@ public class Informacao3 {
             
                 if(campos.length == 10){
                     /*Quantidade de transações comerciais realizadas por ano*/;                
-                   Text ano = new Text(campos[1]);
+                   Text ano = new Text(campos[1] + " | ");
                    context.write(ano, one);
                 } 
                 
@@ -70,7 +70,7 @@ public class Informacao3 {
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException{
        
         String entrada_arquivo = "/home2/ead2022/SEM1/wilian.krinke/Documents/base_100_mil.csv";
-        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/tarefa3";
+        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/local/tarefa3";
         
         if(args.length == 2){
             entrada_arquivo = args[0];

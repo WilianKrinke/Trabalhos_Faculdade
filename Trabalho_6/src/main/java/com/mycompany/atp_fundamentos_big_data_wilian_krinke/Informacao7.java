@@ -32,7 +32,7 @@ public class Informacao7 {
 
                 if(campos.length == 10){
                     /*Mercadoria com maior total de peso , de acordo com todas as transações*/;                
-                   Text mercadoria = new Text(campos[3]);
+                   Text mercadoria = new Text(campos[3] + " | ");
                    LongWritable pesos = new LongWritable(Long.parseLong(campos[6]));
                    context.write(mercadoria, pesos);
                 } 
@@ -68,7 +68,7 @@ public class Informacao7 {
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException{
        
         String entrada_arquivo = "/home2/ead2022/SEM1/wilian.krinke/Documents/base_100_mil.csv";
-        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/tarefa7";
+        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/local/tarefa7";
         
         if(args.length == 2){
             entrada_arquivo = args[0];

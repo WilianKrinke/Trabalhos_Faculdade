@@ -38,7 +38,7 @@ public class Informacao8 {
                     LongWritable pesos = new LongWritable(Long.parseLong(campos[6]));
                     IntWritable ano = new IntWritable(Integer.parseInt(campos[1]));
                     
-                    Text chaveConcatenada = new Text(mercadoria + " / " + ano + " / "); 
+                    Text chaveConcatenada = new Text(mercadoria + " | " + ano + " | "); 
                     context.write(chaveConcatenada, pesos);
                 }                
             

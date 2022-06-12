@@ -34,7 +34,7 @@ public class Informacao1 {
             
                 if(campos.length == 10){
                     /*Pais que mais aparece na lista*/;                
-                   Text pais = new Text(campos[0]);
+                   Text pais = new Text(campos[0] + " | ");
                    context.write(pais, one); 
                 } 
                 
@@ -68,7 +68,7 @@ public class Informacao1 {
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException{
        
         String entrada_arquivo = "/home2/ead2022/SEM1/wilian.krinke/Documents/base_100_mil.csv";
-        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/tarefa1";
+        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/local/tarefa1";
         
         if(args.length == 2){
             entrada_arquivo = args[0];

@@ -34,7 +34,7 @@ public class Informacao5 {
 
                 if(campos.length == 10 && campos[1].equals("2016")){
                     /*Mercadoria com maior quantidade de transações financeiras em 2016*/;                
-                   Text mercadoria = new Text(campos[3]);
+                   Text mercadoria = new Text(campos[3] + " | ");
                    context.write(mercadoria, one);  ;
                 }   
             }catch(Exception e){
@@ -69,7 +69,7 @@ public class Informacao5 {
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException{
        
         String entrada_arquivo = "/home2/ead2022/SEM1/wilian.krinke/Documents/base_100_mil.csv";
-        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/tarefa5";
+        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/local/tarefa5";
         
         if(args.length == 2){
             entrada_arquivo = args[0];

@@ -34,7 +34,7 @@ public class Informacao4 {
             
                 if(campos.length == 10){
                     /*Mercadoria com maior quantidade de transações financeiras*/;                
-                   Text mercadoria = new Text(campos[3]);
+                   Text mercadoria = new Text(campos[3] + " | ");
                    context.write(mercadoria, one); ;
                 }  
             }catch(Exception e){
@@ -69,7 +69,7 @@ public class Informacao4 {
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException{
        
         String entrada_arquivo = "/home2/ead2022/SEM1/wilian.krinke/Documents/base_100_mil.csv";
-        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/tarefa4";
+        String saida_pasta = "/home2/ead2022/SEM1/wilian.krinke/Documents/local/tarefa4";
         
         if(args.length == 2){
             entrada_arquivo = args[0];
