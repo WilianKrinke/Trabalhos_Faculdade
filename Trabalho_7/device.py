@@ -1,25 +1,24 @@
 import paho.mqtt.client as mqtt
 import time
-from hal import medirHumidade, medirTemperatura, aquecedor
+from hal import medirHumidade, medirTemperatura, recepcaoMensagemAquecedor
+from mqttConfig import user, password, clientId, server, port
 
-user: str = ""
-password: str = ""
-
-clientId: str = "stringqualquer"
-server: str = "broker.mqttdashboard.com"
-port: int = 1883
-
+# conexão inicial
 client = mqtt.Client(clientId)
 client.username_pw_set(user, password)
-
 client.connect(server, port)
 
-controle: int = 1
-while controle <= 6:
+client.on_message = recepcaoMensagemAquecedor
+client.subscribe("testeTopic/iot/willk/aquecedor")
+# Se inserir curingas, atente-se para filtragem do tópico
+client.loop_start()
+
+
+while True:
     client.publish("testeTopic/iot/willk/temperatura", medirTemperatura())
     client.publish("testeTopic/iot/willk/humidade", medirHumidade())
-    print(f"Enviando {controle}* temperatura: {medirTemperatura()} e humidade: {medirHumidade()}")
-    time.sleep(1)
-    controle += 1
+    print(f"Enviando medidas de temperatura: {medirTemperatura()} e humidade: {medirHumidade()}")
+    time.sleep(5)
+
 
 client.disconnect()
