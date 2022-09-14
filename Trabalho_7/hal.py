@@ -1,11 +1,12 @@
 import random
+from mqttConfig import user, clientId
 
 
-def medirTemperatura() -> float:
+def medirTemperatura() -> int:
     return random.randrange(2, 25)
 
 
-def medirHumidade() -> float:
+def medirHumidade() -> int:
     return random.randrange(20, 90)
 
 
@@ -16,11 +17,11 @@ def aquecedor(estado: bool) -> None:
         print("Aquecedor Desligado")
 
 
-def recepcaoMensagemAquecedor(cliente, user, msg):
-    estadoAquecedor = msg.payload.decode()
+def recepcaoMensagemAquecedor(cliente, user_name, msg):
+    estadoAquecedor: list = msg.payload.decode().split(",")
 
     # Se quiser simplificar com if, padronizar respostas para 0 ou 1, ou n ou s.
-    match estadoAquecedor:
+    match estadoAquecedor[1]:
         case "on":
             aquecedor(True)
         case "true":
@@ -39,3 +40,7 @@ def recepcaoMensagemAquecedor(cliente, user, msg):
             aquecedor(False)
         case _:
             print('Comando não reconhecido: tente "on" ou "off"')
+
+    cliente.publish(f"v1/{user}/things/{clientId}/response", f"ok,{estadoAquecedor[0]}")
+
+
