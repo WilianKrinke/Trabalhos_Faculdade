@@ -6,7 +6,7 @@ def medirTemperatura() -> int:
     return random.randrange(2, 25)
 
 
-def medirHumidade() -> int:
+def medirUmidade() -> int:
     return random.randrange(20, 90)
 
 
@@ -17,7 +17,7 @@ def aquecedor(estado: bool) -> None:
         print("Aquecedor Desligado")
 
 
-def recepcaoMensagemAquecedor(cliente, user_name, msg):
+def recepcaoMensagemAquecedor(client, user_name, msg):
     estadoAquecedor: list = msg.payload.decode().split(",")
 
     # Se quiser simplificar com if, padronizar respostas para 0 ou 1, ou n ou s.
@@ -41,6 +41,6 @@ def recepcaoMensagemAquecedor(cliente, user_name, msg):
         case _:
             print('Comando não reconhecido: tente "on" ou "off"')
 
-    cliente.publish(f"v1/{user}/things/{clientId}/response", f"ok,{estadoAquecedor[0]}")
+    client.publish(f"v1/{user}/things/{clientId}/response", f"ok,{estadoAquecedor[0]}")
 
 
