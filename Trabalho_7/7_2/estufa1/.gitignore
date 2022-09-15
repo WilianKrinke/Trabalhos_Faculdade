@@ -1,2 +1,4 @@
 mqttBrokerConfig.py
 venv
+.idea
+.gitignore
