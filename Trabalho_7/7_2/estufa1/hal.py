@@ -2,45 +2,29 @@ import random
 from mqttBrokerConfig import user, clientId
 
 
-def medirTemperatura() -> int:
-    return random.randrange(2, 25)
+def medirTemperatura() -> float:
+    return round(random.uniform(28, 32), 1)
 
 
 def medirUmidade() -> int:
-    return random.randrange(20, 90)
+    return random.randrange(10, 90)
 
 
-def aquecedor(estado: bool) -> None:
+def aquecedor(estado: bool):
     if estado:
-        print("aquecedor Ligado")
+        print("Aquecedor Ligado para a estufa anterior.\n")
     else:
-        print("Aquecedor Desligado")
+        print("Aquecedor Desligado para a estufa anterior.\n")
 
 
-def recepcaoMensagemAquecedor(client, user_name, msg):
+def recepcaoMensagemAquecedor(cliente, user_name, msg):
     estadoAquecedor: list = msg.payload.decode().split(",")
-
-    # Se quiser simplificar com if, padronizar respostas para 0 ou 1, ou n ou s.
     match estadoAquecedor[1]:
-        case "on":
-            aquecedor(True)
-        case "true":
-            aquecedor(True)
-        case "True":
-            aquecedor(True)
         case "1":
             aquecedor(True)
-        case "off":
-            aquecedor(False)
-        case "false":
-            aquecedor(False)
-        case "False":
-            aquecedor(False)
         case "0":
             aquecedor(False)
         case _:
-            print('Comando não reconhecido: tente "on" ou "off"')
+            print(f'Comando não reconhecido: {estadoAquecedor[1]}')
 
-    client.publish(f"v1/{user}/things/{clientId}/response", f"ok,{estadoAquecedor[0]}")
-
-
+    cliente.publish(f"v1/{user}/things/{clientId}/response", f"ok,{estadoAquecedor[0]}")

@@ -9,9 +9,8 @@ client.username_pw_set(user, password)
 client.connect(server, port)
 
 client.on_message = recepcaoMensagemAquecedor
-client.subscribe(f"v1/{user}/things/{clientId}/cmd/2")
+client.subscribe(f"v1/{user}/things/{clientId}/cmd/#")
+
 client.loop_start()
-
 sendMessages(client)
-
 client.disconnect()
