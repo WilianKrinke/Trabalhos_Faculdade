@@ -12,9 +12,9 @@ def medirUmidade() -> int:
 
 def aquecedor(estado: bool):
     if estado:
-        print("Aquecedor Ligado para a estufa 1.\n")
+        print("Aquecedor Ligado para a estufa 2.\n")
     else:
-        print("Aquecedor Desligado para a estufa 1.\n")
+        print("Aquecedor Desligado para a estufa 2.\n")
 
 
 def recepcaoMensagemAquecedor(cliente, user_name, msg):
