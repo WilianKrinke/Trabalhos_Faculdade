@@ -21,4 +21,5 @@ segundoDicionario: dict = listaMaterial.pop(1)
 listaMaterial[0]["NomeMaterial"]: str = segundoDicionario["NomeMaterial"]
 listaMaterial[0]["ValorMaterial"]: float = segundoDicionario["ValorMaterial"]
 
-print(listaMaterial)
+for item in listaMaterial:
+    print(item)
