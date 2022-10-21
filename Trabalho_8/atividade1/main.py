@@ -1,18 +1,18 @@
-from signInUser import SignIn
-from signUpUser import SignUp
+from entrar import entrar
+from cadastrarUsuario import cadastrarUsuario
 
 
 def iniciarMenu():
     while True:
         try:
-            opcao: int = int(input('Digite:\t 0-SignUp | 1-SignIn | 2-Sair\n'))
+            opcao: int = int(input('Digite:\t 1-Cadastrar | 2-Entrar/Logar | 3-Sair\n'))
 
             match opcao:
-                case 0:
-                    SignUp()
                 case 1:
-                    SignIn()
+                    cadastrarUsuario()
                 case 2:
+                    entrar()
+                case 3:
                     print("Até Logo :D")
                     break
                 case _:

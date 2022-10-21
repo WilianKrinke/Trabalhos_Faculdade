@@ -3,7 +3,7 @@ import requests
 from firebaseconfig import auth
 
 
-def SignUp():
+def cadastrarUsuario():
     try:
         email: str = input("Digite o seu email: ")
         password: str = input('Digite sua senha: ')
@@ -13,9 +13,11 @@ def SignUp():
             password: str = input('Digite sua senha: ')
 
         status = auth.create_user_with_email_and_password(email, password)
+        id_token = status["idToken"]
+        auth.send_email_verification(id_token)
 
-        for item in status.values():
-            print(item)
+        print(
+            f"\nUsuário cadastrado com sucesso com o e-mail: {status['email']}\nEnviamos a confirmação de cadastro por e-mail.\nPor favor verifique seu e-mail e confirme o cadastro.")
 
     except requests.HTTPError as errorStack:
         error_json = errorStack.args[1]
@@ -24,4 +26,4 @@ def SignUp():
 
 
 if __name__ == "__main__":
-    SignUp()
+    cadastrarUsuario()
