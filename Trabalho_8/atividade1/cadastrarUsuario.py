@@ -4,6 +4,7 @@ from firebaseconfig import auth
 
 
 def cadastrarUsuario():
+    # função para cadastro de usuário no firebase
     try:
         email: str = input("Digite o seu email: ")
         password: str = input('Digite sua senha: ')
@@ -17,7 +18,7 @@ def cadastrarUsuario():
         auth.send_email_verification(id_token)
 
         print(
-            f"\nUsuário cadastrado com sucesso com o e-mail: {status['email']}\nEnviamos a confirmação de cadastro por e-mail.\nPor favor verifique seu e-mail e confirme o cadastro.")
+            f"\nUsuário cadastrado com sucesso com o e-mail: {status['email']}\nEnviamos a confirmação de cadastro por e-mail.\nPor favor verifique seu e-mail e confirme o cadastro.\n")
 
     except requests.HTTPError as errorStack:
         error_json = errorStack.args[1]
