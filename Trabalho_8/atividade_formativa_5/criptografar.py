@@ -10,4 +10,4 @@ def criptografar(*dados):
 
 
 if __name__ == '__main__':
-    criptografar('nome', 'login', 'senha')
+    criptografar('nome', 'email', 'senha')

@@ -4,10 +4,10 @@ from gravarArquivo import gravarArquivo
 
 def cadastrar():
     nome = input('Digite seu nome: ')
-    login = input('Digite o Login: ')
+    email = input('Digite o E-mail: ')
     senha = input('Digite sua senha: ')
 
-    fraseShadow = criptografar(nome, login, senha)
+    fraseShadow = criptografar(nome, email, senha)
     gravarArquivo(fraseShadow)
 
     print('Usuário cadastrado com Sucesso!')
