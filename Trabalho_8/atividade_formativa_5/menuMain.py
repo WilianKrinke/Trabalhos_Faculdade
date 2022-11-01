@@ -4,7 +4,7 @@ from cadastrar import cadastrar
 
 def iniciarMenu():
     while True:
-        opcao = int(input('Digite uma opção: 1-Cadastrar | 2-Autenticar | 3-Sair'))
+        opcao = int(input('Digite uma opção: 1-Cadastrar | 2-Autenticar | 3-Sair\n'))
         match opcao:
             case 1:
                 cadastrar()

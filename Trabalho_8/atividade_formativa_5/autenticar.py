@@ -15,6 +15,11 @@ def autenticar():
 
         mesmaSenha: bool = compararSenhas(senha, senhaLista)
 
+        while not mesmaSenha:
+            print("Senha ou Usuário Incorretos. Para sair aperte ctrl + c.")
+
+        print("Usuário autenticado")
+
     else:
         print('E-mail não cadastrado!')
 
