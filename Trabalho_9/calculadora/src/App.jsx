@@ -1,10 +1,10 @@
 import React from 'react';
+import Grid from './components/grid_component/grid';
+
 
 const App = () => {
-    return (
-        <h1>
-            hello world!!!
-        </h1>
+    return (        
+        <Grid/>     
     );
 };
 
