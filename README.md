@@ -20,3 +20,6 @@
 
 <h2>Trabalho 7</h2>
 <p>Desenvolvimento de dispositivo IoT em python para o envio de mensagens com o protocolo MQTT para o MQTT Broker</p>
+
+<h2>Trabalho 8</h2>
+<p>Desenvolvimento de interfaces gráficas com react</p>
