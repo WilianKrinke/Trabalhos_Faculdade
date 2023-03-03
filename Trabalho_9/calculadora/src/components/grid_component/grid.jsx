@@ -31,7 +31,7 @@ const Grid = () => {
                 </div>
                 <div className='ecra_btn_operators'>
                     <ButtonsOperators operator="/"/>
-                    <ButtonsOperators operator="*"/>
+                    <ButtonsOperators operator="x"/>
                     <ButtonsOperators operator="-"/>
                     <ButtonsOperators operator="+"/>
                     <ButtonsOperators operator="="/>
