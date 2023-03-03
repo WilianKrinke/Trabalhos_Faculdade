@@ -4,7 +4,7 @@ import "./buttons_operators.css"
 const ButtonsOperators = ({operator}) => {
     return (
         <div className='btn_operators'>
-            {operator}
+            <p className='display_operator'>{operator}</p>
         </div>
     );
 }
