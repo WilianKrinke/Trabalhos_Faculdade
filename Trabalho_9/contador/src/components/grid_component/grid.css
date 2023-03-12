@@ -1,0 +1,16 @@
+.grid_class{   
+    height: 250px;
+    width: 500px;    
+    box-shadow: 0px -1px 25px 7px rgba(0,0,0,0.65) inset;
+    -webkit-box-shadow: 0px -1px 25px 7px rgba(0,0,0,0.65) inset;
+    -moz-box-shadow: 0px -1px 25px 7px rgba(0,0,0,0.65) inset;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+.button_class{
+    width: 100px;
+    height: 50px;
+}

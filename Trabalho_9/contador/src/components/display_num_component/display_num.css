@@ -1,0 +1,8 @@
+.display_num_class{
+    height: 50px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
