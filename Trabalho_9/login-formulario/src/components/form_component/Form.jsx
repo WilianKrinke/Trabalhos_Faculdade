@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import verification from '../../utils/verification';
 
 class Form extends Component {
 
@@ -6,14 +7,16 @@ class Form extends Component {
         super(props);
         this.state = {
             email: "",
-            senha: ""
+            senha: "",
+            acesso: "Digite seu e-mail e senha",
         }
     }
 
     checkLogin(event){
         event.preventDefault()
-        console.log(this.state.email)
-        console.log(this.state.senha)
+        const isCheck = verification(this.state.email,this.state.senha)
+
+        console.log(isCheck)
     }
 
     render() {
@@ -33,7 +36,13 @@ class Form extends Component {
                     <div>
                         <button type="button" onClick={(event) => this.checkLogin(event)}>Acessar</button>
                     </div>
-                </form>                
+                </form>
+
+                <div>
+                    <h3>
+                        {this.state.acesso}
+                    </h3>
+                </div>        
             </div>
         );
     }
