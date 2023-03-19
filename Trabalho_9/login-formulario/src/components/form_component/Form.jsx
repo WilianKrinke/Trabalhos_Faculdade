@@ -16,7 +16,14 @@ class Form extends Component {
         event.preventDefault()
         const isCheck = verification(this.state.email,this.state.senha)
 
-        console.log(isCheck)
+        if (isCheck) {
+            this.setState({...this.state,acesso:"Acessado Com Sucesso"})
+        } else {
+            this.setState({...this.state,acesso:"Acesso Não Autorizado"})
+            setTimeout(() => {
+                this.setState({...this.state,acesso:"Digite seu e-mail e senha"})
+            }, 5000);
+        }
     }
 
     render() {
