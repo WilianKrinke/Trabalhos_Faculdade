@@ -10,6 +10,8 @@ class Form extends Component {
             senha: "",
             acesso: "Digite seu e-mail e senha",
         }
+
+        this.checkLogin = this.checkLogin.bind(this)
     }
 
     checkLogin(event){
@@ -19,7 +21,7 @@ class Form extends Component {
         if (isCheck) {
             this.setState({...this.state,acesso:"Acessado Com Sucesso"})
         } else {
-            this.setState({...this.state,acesso:"Acesso Não Autorizado"})
+            this.setState({...this.state,acesso:"Usuário ou senha incorretos!"})
             setTimeout(() => {
                 this.setState({...this.state,acesso:"Digite seu e-mail e senha"})
             }, 5000);
