@@ -25,7 +25,7 @@ class Form extends Component {
             this.setState({...this.state,acesso:"Usuário ou senha incorretos!"})
             setTimeout(() => {
                 this.setState({...this.state,acesso:"Digite seu e-mail e senha"})
-            }, 5000);
+            }, 3000);
         }
     }
 
