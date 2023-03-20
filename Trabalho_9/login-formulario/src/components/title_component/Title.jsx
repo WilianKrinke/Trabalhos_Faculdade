@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './title.css'
 
 class Title extends Component {
 
@@ -12,10 +13,10 @@ class Title extends Component {
 
     render() {
         return (
-            <>
+            <div className='title_class'>
                 <h2>{this.state.title}</h2>
-            </>
-        );
+            </div>
+        )
     }
 }
 

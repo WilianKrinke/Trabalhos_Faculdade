@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import verification from '../../utils/verification';
+import "./form.css"
 
 class Form extends Component {
 
@@ -30,20 +31,20 @@ class Form extends Component {
 
     render() {
         return (
-            <div>
-                <form>
+            <>
+                <form className='form_class'>
                     <div>
-                        <label htmlFor="email">E-mail:</label>
+                        <label htmlFor="email" className='label_class'>E-mail:</label>
                         <input type="text" id='email' size={20} value={this.state.email} onChange={event => this.setState({email: event.target.value})}/>
                     </div>
 
                     <div>
-                        <label htmlFor="senha">Senha:</label>
+                        <label htmlFor="senha" className='label_class'>Senha:</label>
                         <input type="password" id='senha' size={20} value={this.state.senha} onChange={event => this.setState({senha: event.target.value})}/>
                     </div>
 
                     <div>
-                        <button type="button" onClick={(event) => this.checkLogin(event)}>Acessar</button>
+                        <button className='button_class' type="button" onClick={(event) => this.checkLogin(event)}>Acessar</button>
                     </div>
                 </form>
 
@@ -52,7 +53,7 @@ class Form extends Component {
                         {this.state.acesso}
                     </h3>
                 </div>        
-            </div>
+            </>
         );
     }
 }
