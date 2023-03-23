@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import './grid.css'
-import DisplayNum from "../display_num_component/Display_num"
+import './pagetwo.css'
+import DisplayNum from '../../components/display_num_component/Display_num'
+import { Link } from 'react-router-dom';
 
-const Grid = () => {
+const Pagetwo = () => {
 
     const [num, setNum] = useState(0);
 
@@ -23,8 +24,9 @@ const Grid = () => {
             <button className='button_class' onClick={minusNum}>-1</button>
             <DisplayNum num={num}/>
             <button className='button_class' onClick={sumNum}>+1</button>
+            <Link to={'/'}>Home</Link>
         </div>
     );
 }
 
-export default Grid;
+export default Pagetwo;

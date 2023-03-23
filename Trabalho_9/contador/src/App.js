@@ -1,10 +1,10 @@
 import './App.css';
-import Grid from './components/grid_component/Grid';
+import Routes from './routes/index'
 
 function App() {
   return (
     <div className="App">
-      <Grid/>
+      <Routes />
     </div>
   );
 }
