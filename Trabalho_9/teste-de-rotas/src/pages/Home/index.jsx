@@ -1,5 +1,6 @@
 import React from 'react';
 import Title from '../../components/Title_component'
+import { Link } from "react-router-dom";
 import './home.css'
 
 const Index = () => {
@@ -8,8 +9,13 @@ const Index = () => {
             <header className='header_class'>
                 <Title title={'Home'}/>
             </header>
-            <main>
-            
+            <main className='main_class_home'>
+                <section>                    
+                        <Link to={'/contato'} className='buttonClass'>Contato</Link>                    
+                </section>
+                <section>                    
+                        <Link className='buttonClass'>Sobre</Link>                   
+                </section>              
             </main>
             <footer>
                 
