@@ -14,7 +14,7 @@ const Index = () => {
                         <Link to={'/contato'} className='buttonClass'>Contato</Link>                    
                 </section>
                 <section>                    
-                        <Link className='buttonClass'>Sobre</Link>                   
+                        <Link to={'/sobre'} className='buttonClass'>Sobre</Link>                   
                 </section>              
             </main>
             <footer>

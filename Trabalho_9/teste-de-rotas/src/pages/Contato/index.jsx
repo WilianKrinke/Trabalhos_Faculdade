@@ -10,12 +10,12 @@ const Index = () => {
                 <Title title={'Contato'}/>
             </header>
             <main className='main_class_contato'>
-                <section className='section_class section_datas'>
+                <section className='section_datas'>
                     <h4>Nome: Wilian Krinke</h4>
                     <h4>E-mail:  krinkewilian@gmail.com</h4>
                 </section>
 
-                <section className='section_class section_button'>
+                <section className='section_button'>
                     <Link to={'/'} className='buttonClass'>Home</Link>
                 </section>
             </main>
