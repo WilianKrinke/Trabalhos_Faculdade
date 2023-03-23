@@ -13,9 +13,9 @@ class Title extends Component {
 
     render() {
         return (
-            <div className='title_class'>
-                <h2>{this.state.title}</h2>
-            </div>
+            <header className='title_class'>
+                <h1>{this.state.title}</h1>
+            </header>
         )
     }
 }

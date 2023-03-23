@@ -3,7 +3,7 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
-import Grid from "../components/grid_component/Grid";
+import Home from "../pages/Home/Home.jsx";
 
 let container = null;
 beforeEach(() => {
@@ -21,6 +21,6 @@ afterEach(() => {
 
 it("renders with or without a name", () => {
   act(() => {
-    render(<Grid />, container);
+    render(<Home />, container);
   });
 });
