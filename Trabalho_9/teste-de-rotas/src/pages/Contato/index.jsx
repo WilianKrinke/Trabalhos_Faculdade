@@ -12,7 +12,7 @@ const Index = () => {
             <main className='main_class_contato'>
                 <section className='section_class section_datas'>
                     <h4>Nome: Wilian Krinke</h4>
-                    <h4>E-mail:  krinkewilian@gmail.com</h4>;
+                    <h4>E-mail:  krinkewilian@gmail.com</h4>
                 </section>
 
                 <section className='section_class section_button'>
