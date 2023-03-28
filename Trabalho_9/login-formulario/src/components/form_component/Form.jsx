@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import verification from '../../utils/verification';
 import "./form.css"
+import firebaseAuth from '../../firebase/auth';
 
 class Form extends Component {
 
@@ -13,11 +13,33 @@ class Form extends Component {
         }
 
         this.checkLogin = this.checkLogin.bind(this)
+        this.signUpUser = this.signUpUser.bind(this)
+    }
+
+    async signUpUser(event){
+        event.preventDefault()
+        const fbAuth = new firebaseAuth()
+        const hasSignUp = await fbAuth.signUp(this.state.email, this.state.senha)
+      
+        if (hasSignUp === true) {
+            this.setState({...this.state, acesso:"Usuário criado com sucesso"})
+            setTimeout(() => {
+                this.setState({...this.state,acesso:"Digite seu e-mail e senha"})
+            }, 4000);
+        }
+        
+        if(hasSignUp.message){
+            this.setState({...this.state, acesso:hasSignUp.message})
+            setTimeout(() => {
+                this.setState({...this.state,acesso:"Digite seu e-mail e senha"})
+            }, 4000);
+        }
+           
     }
 
     checkLogin(event){
         event.preventDefault()
-        const isCheck = verification(this.state.email,this.state.senha)
+        const isCheck = false
 
         if (isCheck) {
             this.setState({...this.state,acesso:"Acessado Com Sucesso"})
@@ -45,6 +67,10 @@ class Form extends Component {
 
                     <div>
                         <button className='button_class' type="button" onClick={(event) => this.checkLogin(event)}>Acessar</button>
+                    </div>
+
+                    <div>
+                        <button className='button_class' type="button" onClick={(event) => this.signUpUser(event)}>Cadastrar</button>
                     </div>
                 </form>
 
