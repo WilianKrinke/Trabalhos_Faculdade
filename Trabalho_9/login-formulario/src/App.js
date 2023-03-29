@@ -1,9 +1,9 @@
-import Grid from "./pages/Home/Home";
+import Routes from './routes'
 
 function App() {
   return (
     <>
-      <Grid/>
+      <Routes/>
     </>
   );
 }

@@ -4,7 +4,8 @@ import firebaseAuth from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 const Form = () => {
-  const history = useNavigate();
+  const history = useNavigate()
+  
 
   const [email, setemail] = useState("");
   const [senha, setsenha] = useState("");
@@ -13,19 +14,19 @@ const Form = () => {
   const signUpUser = async (event) => {
     event.preventDefault();
     const fbAuth = new firebaseAuth();
-    const hasSignUp = await fbAuth.signUpFb(this.state.email, this.state.senha);
+    const hasSignUp = await fbAuth.signUpFb(email, senha);
 
     if (hasSignUp === true) {
       setacesso("Usuário criado com sucesso");
       setTimeout(() => {
-        this.setState({ ...this.state, acesso: "Digite seu e-mail e senha" });
+        setacesso("Digite seu e-mail e senha");
       }, 4000);
     }
 
     if (hasSignUp.message) {
       setacesso(hasSignUp.message);
       setTimeout(() => {
-        this.setState({ ...this.state, acesso: "Digite seu e-mail e senha" });
+        setacesso("Digite seu e-mail e senha");
       }, 4000);
     }
   };
@@ -33,7 +34,8 @@ const Form = () => {
   const signIn = async (event) => {
     event.preventDefault();
     const fbAuth = new firebaseAuth();
-    const hasLogin = await fbAuth.signInFb(this.state.email, this.state.senha);
+    const hasLogin = await fbAuth.signInFb(email, senha);
+    console.log(hasLogin)
 
     if (hasLogin === true) {
       setacesso("Acessado Com Sucesso, redirecionando...");
@@ -44,7 +46,7 @@ const Form = () => {
     }
 
     if (hasLogin.message) {
-      this.setState({ ...this.state, acesso: hasLogin.message });
+        setacesso(hasLogin.message);
       setTimeout(() => {
         setacesso("Digite seu e-mail e senha");
       }, 4000);

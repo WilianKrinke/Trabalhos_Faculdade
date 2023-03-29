@@ -5,7 +5,6 @@ import { auth } from "./firebase";
 export default class firebaseAuth {
 
   async signUpFb(email, password) {
-    console.log("entrou no metodo");
     try {
       const resp = await auth.createUserWithEmailAndPassword(email, password);
 

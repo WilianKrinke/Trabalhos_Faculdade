@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class PageTwo extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Page Two</h1>
-            </div>
-        )
-    }
+const PageTwo = () => {
+    return (
+        <>
+            <h1>PAGE TWO</h1>
+        </>
+    );
 }
 
 export default PageTwo;
+

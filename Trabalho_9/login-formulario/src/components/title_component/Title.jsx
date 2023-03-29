@@ -1,23 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './title.css'
 
-class Title extends Component {
-
-    constructor(props){
-        super(props);
-        this.state = {
-            title: "Login"
-        }
-    }
-
-
-    render() {
-        return (
+const Title = () => {
+    return (
+        <>
             <header className='title_class'>
-                <h1>{this.state.title}</h1>
+                <h1>Login</h1>
             </header>
-        )
-    }
+        </>
+    );
 }
 
 export default Title;
+
