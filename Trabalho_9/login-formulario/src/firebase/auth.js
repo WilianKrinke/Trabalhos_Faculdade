@@ -4,12 +4,12 @@ import { auth } from "./firebase";
 
 export default class firebaseAuth {
 
-  async signUp(email, password) {
+  async signUpFb(email, password) {
     console.log("entrou no metodo");
     try {
       const resp = await auth.createUserWithEmailAndPassword(email, password);
 
-      if (resp.additionalUserInfo.isNewUser) {
+      if (resp.additionalUserInfo) {
         return true
       }
 
@@ -18,12 +18,16 @@ export default class firebaseAuth {
     }
   }
 
-  async signIn(email, password) {
+  async signInFb(email, password) {
     try {
+      console.log(email,password)
       const resp = await auth.signInWithEmailAndPassword(email, password);
-      console.log(resp);
+      
+      if (resp.additionalUserInfo) {
+        return true
+      }
     } catch (error) {
-      console.log(error);
+      return error
     }
   }
 

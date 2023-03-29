@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./form.css"
 import firebaseAuth from '../../firebase/auth';
+import {Navigate} from 'react-router-dom'
 
 class Form extends Component {
 
@@ -10,16 +11,18 @@ class Form extends Component {
             email: "",
             senha: "",
             acesso: "Digite seu e-mail e senha",
+            redirect: false
         }
 
-        this.checkLogin = this.checkLogin.bind(this)
+        this.checkLogin = this.signIn.bind(this)
         this.signUpUser = this.signUpUser.bind(this)
     }
 
     async signUpUser(event){
+        
         event.preventDefault()
         const fbAuth = new firebaseAuth()
-        const hasSignUp = await fbAuth.signUp(this.state.email, this.state.senha)
+        const hasSignUp = await fbAuth.signUpFb(this.state.email, this.state.senha)
       
         if (hasSignUp === true) {
             this.setState({...this.state, acesso:"Usuário criado com sucesso"})
@@ -37,23 +40,33 @@ class Form extends Component {
            
     }
 
-    checkLogin(event){
+    async signIn(event){
         event.preventDefault()
-        const isCheck = false
+        const fbAuth = new firebaseAuth()
+        const hasLogin = await fbAuth.signInFb(this.state.email, this.state.senha)
 
-        if (isCheck) {
-            this.setState({...this.state,acesso:"Acessado Com Sucesso"})
-        } else {
-            this.setState({...this.state,acesso:"Usuário ou senha incorretos!"})
+        if (hasLogin === true) {
+            this.setState({...this.state, acesso:"Acessado Com Sucesso, redirecionando..."})
+            this.setState({...this.state, redirect:true})
             setTimeout(() => {
                 this.setState({...this.state,acesso:"Digite seu e-mail e senha"})
             }, 4000);
         }
+
+        if(hasLogin.message){
+            this.setState({...this.state, acesso:hasLogin.message})
+            setTimeout(() => {
+                this.setState({...this.state,acesso:"Digite seu e-mail e senha"})
+            }, 4000);
+        }  
     }
 
     render() {
         return (
-            <>
+            <>  
+                {
+                    this.state.redirect && <Navigate to='/page-two' replace={true}/>
+                }
                 <form className='form_class'>
                     <div>
                         <label htmlFor="email" className='label_class'>E-mail:</label>
@@ -66,7 +79,7 @@ class Form extends Component {
                     </div>
 
                     <div>
-                        <button className='button_class' type="button" onClick={(event) => this.checkLogin(event)}>Acessar</button>
+                        <button className='button_class' type="button" onClick={(event) => this.signIn(event)}>Acessar</button>
                     </div>
 
                     <div>
