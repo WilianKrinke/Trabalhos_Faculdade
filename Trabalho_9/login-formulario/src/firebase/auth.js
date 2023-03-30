@@ -1,14 +1,13 @@
-import "firebase"
-import { auth } from "./firebase";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
-
-export default class firebaseAuth {
+export default class firebaseAuthClass {
 
   async signUpFb(email, password) {
     try {
-      const resp = await auth.createUserWithEmailAndPassword(email, password);
+      const auth = getAuth()
+      const resp = await createUserWithEmailAndPassword(auth,email,password)
 
-      if (resp.additionalUserInfo) {
+      if (resp.user) {
         return true
       }
 
@@ -19,10 +18,10 @@ export default class firebaseAuth {
 
   async signInFb(email, password) {
     try {
-      console.log(email,password)
-      const resp = await auth.signInWithEmailAndPassword(email, password);
-      
-      if (resp.additionalUserInfo) {
+      const auth = getAuth()
+      const resp = await signInWithEmailAndPassword(auth,email,password)
+
+      if (resp.user) {
         return true
       }
     } catch (error) {
@@ -32,9 +31,7 @@ export default class firebaseAuth {
 
   async isLoggedIn(email) {
     try {
-      const resp = auth.onAuthStateChanged();
-
-      console.log(resp);
+      //FAZER VERIFICAÇÃO DE LOGIN
     } catch (error) {}
   }
 }

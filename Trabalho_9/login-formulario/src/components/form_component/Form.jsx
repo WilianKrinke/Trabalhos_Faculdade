@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./form.css";
-import firebaseAuth from "../../firebase/auth";
+import firebaseAuthClass from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 const Form = () => {
@@ -13,7 +13,7 @@ const Form = () => {
 
   const signUpUser = async (event) => {
     event.preventDefault();
-    const fbAuth = new firebaseAuth();
+    const fbAuth = new firebaseAuthClass();
     const hasSignUp = await fbAuth.signUpFb(email, senha);
 
     if (hasSignUp === true) {
@@ -33,9 +33,8 @@ const Form = () => {
 
   const signIn = async (event) => {
     event.preventDefault();
-    const fbAuth = new firebaseAuth();
+    const fbAuth = new firebaseAuthClass();
     const hasLogin = await fbAuth.signInFb(email, senha);
-    console.log(hasLogin)
 
     if (hasLogin === true) {
       setacesso("Acessado Com Sucesso, redirecionando...");
