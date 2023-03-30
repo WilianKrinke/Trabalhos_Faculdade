@@ -32,6 +32,14 @@ export default class firebaseAuthClass {
   async isLoggedIn(email) {
     try {
       //FAZER VERIFICAÇÃO DE LOGIN
+      //FAZER LOGOUT
+    } catch (error) {}
+  }
+
+  async signOut() {
+    try {
+      //FAZER VERIFICAÇÃO DE LOGIN
+      //FAZER LOGOUT
     } catch (error) {}
   }
 }
