@@ -1,45 +1,46 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 
 export default class firebaseAuthClass {
-
   async signUpFb(email, password) {
     try {
-      const auth = getAuth()
-      const resp = await createUserWithEmailAndPassword(auth,email,password)
+      const auth = getAuth();
+      const resp = await createUserWithEmailAndPassword(auth, email, password);
 
       if (resp.user) {
-        return true
+        return true;
       }
-
     } catch (error) {
-      return error
+      return error;
     }
   }
 
   async signInFb(email, password) {
     try {
-      const auth = getAuth()
-      const resp = await signInWithEmailAndPassword(auth,email,password)
+      const auth = getAuth();
+      const resp = await signInWithEmailAndPassword(auth, email, password);
 
       if (resp.user) {
-        return true
+        return true;
       }
     } catch (error) {
-      return error
+      return error;
     }
   }
 
-  async isLoggedIn(email) {
+  async signOutFb() {
     try {
-      //FAZER VERIFICAÇÃO DE LOGIN
-      //FAZER LOGOUT
-    } catch (error) {}
-  }
+      const auth = getAuth();
+      await signOut(auth);
 
-  async signOut() {
-    try {
-      //FAZER VERIFICAÇÃO DE LOGIN
-      //FAZER LOGOUT
-    } catch (error) {}
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
   }
 }

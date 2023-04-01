@@ -2,15 +2,26 @@ import React, { useEffect, useState } from "react";
 import LoadingComponent from "../../components/loading_component/Loading_component";
 import InputComponent from "../../components/input_component/Input_component";
 import ReceiverComponent from "../../components/receiver_component/ReceiverComponent";
+import LogoutComponent from "../../components/logout_component/Logout_Component";
+import { useNavigate } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const PageTwo = () => {
+  const history = useNavigate();
   const [loading, setloading] = useState(true);
 
   useEffect(() => {
     (async () => {
-      setloading(false);
+      const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setloading(false);
+        } else {
+          history("/");
+        }
+      });
     })();
-  }, [loading]);
+  }, [loading, history]);
 
   return (
     <>
@@ -21,6 +32,8 @@ const PageTwo = () => {
           <InputComponent />
 
           <ReceiverComponent />
+
+          <LogoutComponent />
         </main>
       )}
     </>
