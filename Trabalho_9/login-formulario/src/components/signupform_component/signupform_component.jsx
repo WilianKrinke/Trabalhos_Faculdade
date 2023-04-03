@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 import "./form.css";
-import firebaseAuthClass from "../../firebase/auth";
-import { useNavigate } from "react-router-dom";
+import  { signUpFb } from "../../firebase/auth";
+import  { sendDatasToFb } from "../../firebase/database";
 
-const Form = () => {
-  const history = useNavigate()
-  
+const SignUpForm = () => {
 
   const [email, setemail] = useState("");
   const [senha, setsenha] = useState("");
+  const [nome, setnome] = useState("");
+  const [sobrenome, setsobrenome] = useState("");
+  const [dn, setdn] = useState("");
   const [acesso, setacesso] = useState("Digite seu e-mail e senha");
 
   const signUpUser = async (event) => {
     event.preventDefault();
-    const fbAuth = new firebaseAuthClass();
-    const hasSignUp = await fbAuth.signUpFb(email, senha);
+    const hasSignUp = await signUpFb(email, senha);
+    const hasSendDatas = await sendDatasToFb(nome,sobrenome,dn)
+    
 
-    if (hasSignUp === true) {
-      setacesso("Usuário criado com sucesso");
+    if (hasSignUp === true && hasSendDatas === true) {
+      setacesso("Usuário criado e dados inseridos com sucesso");
       setTimeout(() => {
         setacesso("Digite seu e-mail e senha");
       }, 4000);
@@ -25,27 +27,6 @@ const Form = () => {
 
     if (hasSignUp.message) {
       setacesso(hasSignUp.message);
-      setTimeout(() => {
-        setacesso("Digite seu e-mail e senha");
-      }, 4000);
-    }
-  };
-
-  const signIn = async (event) => {
-    event.preventDefault();
-    const fbAuth = new firebaseAuthClass();
-    const hasLogin = await fbAuth.signInFb(email, senha);
-
-    if (hasLogin === true) {
-      setacesso("Acessado Com Sucesso, redirecionando...");
-
-      setTimeout(() => {
-        history("/page-two")
-      }, 2000);
-    }
-
-    if (hasLogin.message) {
-        setacesso(hasLogin.message);
       setTimeout(() => {
         setacesso("Digite seu e-mail e senha");
       }, 4000);
@@ -64,6 +45,7 @@ const Form = () => {
             id="email"
             size={20}
             value={email}
+            placeholder="Digite seu e-mail"
             onChange={(event) => setemail(event.target.value)}
           />
         </div>
@@ -77,18 +59,44 @@ const Form = () => {
             id="senha"
             size={20}
             value={senha}
+            placeholder="Digite sua senha"
             onChange={(event) => setsenha(event.target.value)}
           />
         </div>
 
         <div>
-          <button
-            className="button_class"
-            type="button"
-            onClick={(event) => signIn(event)}
-          >
-            Acessar
-          </button>
+          <label htmlFor="nome">Nome: </label>
+          <input
+            type="text"
+            name="nome"
+            id="nome"
+            value={nome}
+            placeholder="Digite seu nome"
+            onChange={(e) => setnome(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="sobrenome">Sobrenome: </label>
+          <input
+            type="text"
+            name="sobrenome"
+            id="sobrenome"
+            value={sobrenome}
+            placeholder="Digite seu sobrenome"
+            onChange={(e) => setsobrenome(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="date">DN: </label>
+          <input
+            type="date"
+            name="date"
+            id="date"
+            value={dn}
+            onChange={(e) => setdn(e.target.value)}
+          />
         </div>
 
         <div>
@@ -109,4 +117,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default SignUpForm;

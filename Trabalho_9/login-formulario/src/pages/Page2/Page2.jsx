@@ -1,21 +1,21 @@
 import React from "react";
-import "./home.css";
+import "./page2.css";
 import Title from "../../components/title_component/Title";
-import Form from "../../components/form_component/Form";
+import LoginComponent from "../../components/login_component/login_component";
 
-const Home = () => {
+const Page2 = () => {
   return (
     <>
       <header>
-        <Title />
+        <Title title={"Login"} />
       </header>
       <main>
         <section>
-          <Form />
+          <LoginComponent />
         </section>
       </main>
     </>
   );
 };
 
-export default Home;
+export default Page2;

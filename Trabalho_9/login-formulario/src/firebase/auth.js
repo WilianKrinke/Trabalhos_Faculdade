@@ -5,8 +5,8 @@ import {
   signOut,
 } from "firebase/auth";
 
-export default class firebaseAuthClass {
-  async signUpFb(email, password) {
+
+  export async function signUpFb(email, password) {
     try {
       const auth = getAuth();
       const resp = await createUserWithEmailAndPassword(auth, email, password);
@@ -19,7 +19,7 @@ export default class firebaseAuthClass {
     }
   }
 
-  async signInFb(email, password) {
+  export async function signInFb(email, password) {
     try {
       const auth = getAuth();
       const resp = await signInWithEmailAndPassword(auth, email, password);
@@ -32,7 +32,7 @@ export default class firebaseAuthClass {
     }
   }
 
-  async signOutFb() {
+  export async function signOutFb() {
     try {
       const auth = getAuth();
       await signOut(auth);
@@ -43,4 +43,4 @@ export default class firebaseAuthClass {
       return false;
     }
   }
-}
+

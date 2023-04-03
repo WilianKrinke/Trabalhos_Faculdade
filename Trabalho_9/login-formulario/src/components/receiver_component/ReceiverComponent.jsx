@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import databaseClass from "../../firebase/database";
+import { getDatasFromFb } from "../../firebase/database";
 
 const ReceiverComponent = () => {
   const [datasReceived, setdatasReceived] = useState([]);
 
   const getDatas = async (event) => {
     event.preventDefault();
-    const database = new databaseClass();
-    const datas = await database.getDatasFromFb();
+    
+    const datas = await getDatasFromFb();
 
     setdatasReceived(datas);
   };
