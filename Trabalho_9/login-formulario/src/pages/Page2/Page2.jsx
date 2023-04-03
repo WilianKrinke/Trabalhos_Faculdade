@@ -1,7 +1,8 @@
 import React from "react";
 import "./page2.css";
 import Title from "../../components/title_component/Title";
-import LoginComponent from "../../components/login_component/login_component";
+import LoginComponent from "../../components/login_component/Login_component";
+
 
 const Page2 = () => {
   return (
