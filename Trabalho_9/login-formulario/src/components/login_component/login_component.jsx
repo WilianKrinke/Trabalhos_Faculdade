@@ -7,17 +7,19 @@ const LoginComponent = () => {
 
   const [email, setemail] = useState("");
   const [pass, setpass] = useState("");
-  const [stringSuccess, setStringSuccess] = useState("");
+  const [quote, setQuote] = useState("");
 
   const login = async (e) => {
     e.preventDefault()
-    const hasLogin = await signInFb(email, pass)
+    const {hasSignIn,responseSignIn} = await signInFb(email, pass)
 
-    if (hasLogin) {
-      setStringSuccess("Login realizado com sucesso...")
+    if (hasSignIn) {
+      setQuote(responseSignIn)
       setTimeout(() => {
         history("/page-three")
       }, 2000);
+    } else {
+      setQuote(responseSignIn)
     }
   }
 
@@ -54,7 +56,7 @@ const LoginComponent = () => {
       </form>
 
       <div>
-        <h3>{stringSuccess}</h3>
+        <h3>{quote}</h3>
       </div>
     </>
   )

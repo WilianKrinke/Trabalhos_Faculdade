@@ -1,35 +1,50 @@
 import React, { useState } from "react";
 import "./form.css";
-import  { signUpFb } from "../../firebase/auth";
-import  { sendDatasToFb } from "../../firebase/database";
+import { signUpFb } from "../../firebase/auth";
+import { sendDatasToFb } from "../../firebase/database";
 
 const SignUpForm = () => {
-
   const [email, setemail] = useState("");
   const [senha, setsenha] = useState("");
   const [nome, setnome] = useState("");
   const [sobrenome, setsobrenome] = useState("");
   const [dn, setdn] = useState("");
-  const [acesso, setacesso] = useState("Digite seu e-mail e senha");
+  const [quote, setQuote] = useState("Digite seu e-mail e senha");
 
-  const signUpUser = async (event) => {
-    event.preventDefault();
-    const hasSignUp = await signUpFb(email, senha);
-    const hasSendDatas = await sendDatasToFb(nome,sobrenome,dn)
-    
+  const signUpUser = async (e) => {
+    e.preventDefault();
+    const { hasSignUp, responseSignUp } = await signUpFb(email, senha);
 
-    if (hasSignUp === true && hasSendDatas === true) {
-      setacesso("Usuário criado e dados inseridos com sucesso");
+    if (hasSignUp === true) {
+      setQuote(responseSignUp);     
+
+      const { hasSendDatas, responseSendDatas } = await sendDatasToFb(
+        nome,
+        sobrenome,
+        dn
+      );
+
+      if (hasSendDatas === true) {
+        setTimeout(() => {
+          setQuote(responseSendDatas);
+        }, 2000);        
+        
+        setTimeout(() => {
+          setQuote("Digite seu e-mail e senha");
+        }, 4000);         
+      } else {
+        setQuote(responseSendDatas);     
+        setTimeout(() => {
+          setQuote("Digite seu e-mail e senha");
+        }, 3000);  
+        
+      }
+    } else {
+      setQuote(responseSignUp);
+
       setTimeout(() => {
-        setacesso("Digite seu e-mail e senha");
-      }, 4000);
-    }
-
-    if (hasSignUp.message) {
-      setacesso(hasSignUp.message);
-      setTimeout(() => {
-        setacesso("Digite seu e-mail e senha");
-      }, 4000);
+        setQuote("Digite seu e-mail e senha");
+      }, 3000);
     }
   };
 
@@ -46,7 +61,7 @@ const SignUpForm = () => {
             size={20}
             value={email}
             placeholder="Digite seu e-mail"
-            onChange={(event) => setemail(event.target.value)}
+            onChange={(e) => setemail(e.target.value)}
           />
         </div>
 
@@ -60,7 +75,7 @@ const SignUpForm = () => {
             size={20}
             value={senha}
             placeholder="Digite sua senha"
-            onChange={(event) => setsenha(event.target.value)}
+            onChange={(e) => setsenha(e.target.value)}
           />
         </div>
 
@@ -103,7 +118,7 @@ const SignUpForm = () => {
           <button
             className="button_class"
             type="button"
-            onClick={(event) => signUpUser(event)}
+            onClick={(e) => signUpUser(e)}
           >
             Cadastrar
           </button>
@@ -111,7 +126,7 @@ const SignUpForm = () => {
       </form>
 
       <div>
-        <h3>{acesso}</h3>
+        <h3>{quote}</h3>
       </div>
     </>
   );

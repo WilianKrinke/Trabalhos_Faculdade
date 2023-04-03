@@ -8,14 +8,21 @@ import {
 
   export async function signUpFb(email, password) {
     try {
+      
       const auth = getAuth();
       const resp = await createUserWithEmailAndPassword(auth, email, password);
 
       if (resp.user) {
-        return true;
+        return {
+          hasSignUp : true,
+          responseSignUp: "Usuario cadastrado com sucesso...\nInserindo dados no Firestore"
+        };
       }
     } catch (error) {
-      return error;
+      return {
+        hasSignUp : false,
+        responseSignUp: error.message
+      };
     }
   }
 
@@ -25,10 +32,16 @@ import {
       const resp = await signInWithEmailAndPassword(auth, email, password);
 
       if (resp.user) {
-        return true;
+        return {
+          hasSignIn: true,
+          responseSignIn: "Login realizado com sucesso...Redirecionando"
+        };
       }
     } catch (error) {
-      return error;
+      return {
+        hasSignIn: false,
+        responseSignIn: error.message
+      };
     }
   }
 

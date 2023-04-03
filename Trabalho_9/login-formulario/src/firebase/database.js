@@ -12,11 +12,17 @@ export async function sendDatasToFb(nomeData, sobrenomeData, DNData) {
     });
 
     if (hasSendDatas.id) {
-      return true;
+      return {
+        hasSendDatas: true,
+        responseSendDatas: "Dados inseridos com sucesso"
+      };
     }
   } catch (error) {
     console.log(error);
-    return false;
+    return {
+      hasSendDatas: false,
+      responseSendDatas: error.message
+    };
   }
 }
 
