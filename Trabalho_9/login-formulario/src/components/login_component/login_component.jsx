@@ -17,7 +17,7 @@ const LoginComponent = () => {
       setQuote(responseSignIn)
       setTimeout(() => {
         history("/page-three")
-      }, 2000);
+      }, 3000);
     } else {
       setQuote(responseSignIn)
     }

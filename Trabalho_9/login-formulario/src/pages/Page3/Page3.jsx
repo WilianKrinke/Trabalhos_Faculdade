@@ -16,7 +16,7 @@ const Page3 = () => {
         if (user) {
           setloading(false);
         } else {
-          history("/");
+          history("/page-two");
         }
       });
     })();

@@ -31,7 +31,7 @@ const SignUpForm = () => {
         
         setTimeout(() => {
           setQuote("Digite seu e-mail e senha");
-        }, 4000);         
+        }, 8000);         
       } else {
         setQuote(responseSendDatas);     
         setTimeout(() => {
