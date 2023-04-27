@@ -1,43 +1,45 @@
-import React, { useState } from "react";
-import databaseClass from "../../firebase/database";
+import React, { useEffect, useState } from "react";
+import { getDatasFromFb } from "../../firebase/database";
+import Title from "../title_component/Title";
 
 const ReceiverComponent = () => {
   const [datasReceived, setdatasReceived] = useState([]);
 
-  const getDatas = async (event) => {
-    event.preventDefault();
-    const database = new databaseClass();
-    const datas = await database.getDatasFromFb();
-
-    setdatasReceived(datas);
-  };
+  useEffect(() => {
+    (async () => {
+      const datas = await getDatasFromFb();
+      setdatasReceived(datas);
+    })();
+  }, []);
 
   return (
     <>
-      <section>
-        <form action="">
-          <button
-            type="button"
-            typeof="button"
-            id="getdatas"
-            onClick={(event) => getDatas(event)}
-          >
-            Obter Dados
-          </button>
-        </form>
-      </section>
-      <br />
+
+      <Title title={"Tabela de Dados"}/>
       {datasReceived !== undefined &&
         datasReceived.map((item) => {
           return (
             <div key={item.id}>
-              <h4>
-                {item.nome} {item.sobrenome}
-              </h4>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nome Completo </th>
+                    <th>Data de Nascimento </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      {item.nome} {item.sobrenome}
+                    </td>
+                    <td>{item.DnData}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           );
         })}
-      <br/>
+      <br />
     </>
   );
 };

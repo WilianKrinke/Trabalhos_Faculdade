@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import LoadingComponent from "../../components/loading_component/Loading_component";
-import InputComponent from "../../components/input_component/Input_component";
 import ReceiverComponent from "../../components/receiver_component/ReceiverComponent";
 import LogoutComponent from "../../components/logout_component/Logout_Component";
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-const PageTwo = () => {
+const Page3 = () => {
   const history = useNavigate();
   const [loading, setloading] = useState(true);
 
@@ -17,7 +16,7 @@ const PageTwo = () => {
         if (user) {
           setloading(false);
         } else {
-          history("/");
+          history("/page-two");
         }
       });
     })();
@@ -29,8 +28,6 @@ const PageTwo = () => {
         <LoadingComponent />
       ) : (
         <main>
-          <InputComponent />
-
           <ReceiverComponent />
 
           <LogoutComponent />
@@ -40,4 +37,4 @@ const PageTwo = () => {
   );
 };
 
-export default PageTwo;
+export default Page3;

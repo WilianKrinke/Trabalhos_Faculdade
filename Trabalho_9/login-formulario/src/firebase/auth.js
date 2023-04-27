@@ -5,34 +5,47 @@ import {
   signOut,
 } from "firebase/auth";
 
-export default class firebaseAuthClass {
-  async signUpFb(email, password) {
+
+  export async function signUpFb(email, password) {
     try {
+      
       const auth = getAuth();
       const resp = await createUserWithEmailAndPassword(auth, email, password);
 
       if (resp.user) {
-        return true;
+        return {
+          hasSignUp : true,
+          responseSignUp: "Usuario cadastrado com sucesso...\nInserindo dados no Firestore"
+        };
       }
     } catch (error) {
-      return error;
+      return {
+        hasSignUp : false,
+        responseSignUp: error.message
+      };
     }
   }
 
-  async signInFb(email, password) {
+  export async function signInFb(email, password) {
     try {
       const auth = getAuth();
       const resp = await signInWithEmailAndPassword(auth, email, password);
 
       if (resp.user) {
-        return true;
+        return {
+          hasSignIn: true,
+          responseSignIn: "Login realizado com sucesso...Redirecionando"
+        };
       }
     } catch (error) {
-      return error;
+      return {
+        hasSignIn: false,
+        responseSignIn: error.message
+      };
     }
   }
 
-  async signOutFb() {
+  export async function signOutFb() {
     try {
       const auth = getAuth();
       await signOut(auth);
@@ -43,4 +56,4 @@ export default class firebaseAuthClass {
       return false;
     }
   }
-}
+
