@@ -26,3 +26,11 @@
 
 <h2>Trabalho 9</h2>
 <p>Desenvolvimento de interfaces gráficas com ReactJS</p>
+
+<h2>Trabalho 10</h2>
+<p>Desenvolvimento de sistema de RH com RBAC e JWT em java</p>
+
+<h2>Trabalho 11</h2>
+<p>Atividade diagnóstica em java</p>
+
+
